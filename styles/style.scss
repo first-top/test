@@ -1,0 +1,359 @@
+@import "vars";
+@import "default";
+
+.k1-required::after {
+	content: "*";
+	color: red;
+	position: relative;
+	top: -3px;
+	font-size: .8rem;
+}
+
+.slide-check {
+	&__choose {
+		display: flex;
+		label {
+			position: relative;
+			display: flex;
+			align-items: center;
+			&:hover {
+				cursor: pointer;
+			}
+			input {
+				position: absolute;
+				opacity: 0;
+				visibility: hidden;
+				appearance: none;
+				&:checked + span::before {
+					opacity: 1;
+				}
+			}
+			span {
+				width: 20px;
+				height: 20px;
+				//border-radius: 50%;
+				border: 1px solid green;
+				opacity: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-right: 10px;
+				&::before {
+					content: "";
+					display: block;
+					width: 12px;
+					height: 12px;
+					background-color: green;
+					//border-radius: 50%;
+					opacity: 0;
+					transition: opacity .1s linear;
+				}
+				//transition: opacity .1s linear;
+			}
+		}
+		&.error-soc {
+			.slide-item__error-field {
+				display: block;
+			}
+		}
+	}
+	.slide-check-item {
+		margin-right: 15px;
+	}
+}
+
+.slides {
+	&__box {
+		align-items: flex-start;
+	}
+
+	&__item {
+		flex: 0 0 0;
+		transition: all .3s linear;
+		overflow: hidden;
+		margin-bottom: 20px;
+		&.active {
+			flex: 1 1 100%;
+		}
+	}
+
+
+	&__item--intro .slide-item__row {
+		border-top: none !important;
+		//display: inline-flex;
+		//margin-right: 20px;
+		margin-bottom: 20px;
+		padding-top: 0 !important;
+	}
+	h3, h5 {
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+	h3 {
+		font-size: 1.2rem;
+	}
+}
+
+.slide-item {
+	&__row{
+		//background-color: rgba(green, .2);
+		padding: 15px 0 0;
+		& + & {
+			margin-top: 5px;
+			border-top: 1px solid rgba(grey, .5);
+		}
+	}
+
+	&__error-field {
+		display: none;
+		color: red;
+	}
+
+	&__title {
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+
+	&__checkboxes,
+	&__radios {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	&__radios {
+		label {
+			position: relative;
+			display: flex;
+			align-items: center;
+			&:hover {
+				cursor: pointer;
+			}
+			input {
+				position: absolute;
+				opacity: 0;
+				visibility: hidden;
+				appearance: none;
+				&:checked + span::before {
+					opacity: 1;
+				}
+			}
+			span {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				border: 1px solid green;
+				opacity: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-right: 10px;
+				&::before {
+					content: "";
+					display: block;
+					width: 16px;
+					height: 16px;
+					background-color: green;
+					border-radius: 50%;
+					opacity: 0;
+					transition: opacity .1s linear;
+				}
+				//transition: opacity .1s linear;
+			}
+		}
+	}
+
+	&__checkboxes {
+		label {
+			position: relative;
+			display: flex;
+			align-items: center;
+			&:hover {
+				cursor: pointer;
+			}
+			input {
+				position: absolute;
+				opacity: 0;
+				visibility: hidden;
+				appearance: none;
+				&:checked + span::before {
+					opacity: 1;
+				}
+			}
+			span {
+				width: 20px;
+				height: 20px;
+				//border-radius: 50%;
+				border: 1px solid green;
+				opacity: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-right: 10px;
+				&::before {
+					content: "";
+					display: block;
+					width: 12px;
+					height: 12px;
+					background-color: green;
+					//border-radius: 50%;
+					opacity: 0;
+					transition: opacity .1s linear;
+				}
+				//transition: opacity .1s linear;
+			}
+		}
+	}
+
+	&__checkboxes-row {
+		flex: 0 1 50%;
+		margin-bottom: 10px;
+	}
+}
+
+.social-item {
+	display: none;
+	&.chosen-soc {
+		display: block;
+	}
+}
+
+.header {
+	background-color: green;
+}
+
+.icon {
+	width: 30px;
+	height: 30px;
+	border: 1px solid red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: yellow;
+	img {
+		filter: opacity(0.5);
+		background-color: red;
+		//width: 16px;
+		//height: 16px;
+	}
+}
+
+.form-send-final {
+	margin: 20px auto;
+	padding: 15px 30px;
+	background-color: blue;
+	color: white;
+	border-radius: 5px;
+	transition: box-shadow .1s linear;
+	text-transform: uppercase;
+	font-family: sans-serif;
+	&:hover {
+		box-shadow: 0 0 5px 2px blue;
+		cursor: pointer;
+	}
+
+}
+
+.slides-table {
+	&__head,
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px 0;
+		&.error-skill {
+			background-color: rgba(red, .2);
+		}
+	}
+
+	&__placeholder,
+	&__name,
+	&__column {
+		flex: 0 1 calc(20% - 5px)
+	}
+
+	&__column {
+		padding: 0 10px;
+		text-align: center;
+	}
+
+	&__row {
+		& + & {
+			border-top: 1px solid rgba(grey, .5);
+		}
+		&:nth-child(even) {
+			//background-color: rgba(grey, .2);
+		}
+		&:nth-child(odd) {
+			//background-color: rgba(grey, .4);
+		}
+		&:last-child {
+			background-color: white;
+		}
+	}
+
+	&__column {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		label {
+			position: relative;
+			width: 20px;
+			height: 20px;
+			border: 1px solid green;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&:hover {
+				cursor: pointer;
+			}
+			input {
+				position: absolute;
+				opacity: 0;
+				visibility: hidden;
+				appearance: none;
+				&:checked + span {
+					opacity: 1;
+				}
+			}
+			span {
+				width: 16px;
+				height: 16px;
+				background-color: green;
+				border-radius: 50%;
+				opacity: 0;
+				transition: opacity .1s linear;
+			}
+		}
+	}
+}
+
+.thanks {
+	text-align: center;
+	font-size: 1.2rem;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+//https://sovkrov.ru/myagkaya-cherepica/ruflex/
+//https://sovkrov.ru/manager/?a=resource/update&id=193
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

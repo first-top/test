@@ -1,0 +1,553 @@
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h2,
+h3,
+h3,
+h4,
+h4,
+h5,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+button {
+  outline: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: "";
+  content: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+img {
+  max-width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a,
+input,
+textarea {
+  outline: none;
+}
+
+html,
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 16px;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  height: 100%;
+  font-weight: 400;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 1750px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+.flex-body {
+  display: flex;
+  align-items: center;
+}
+
+.k1-btn {
+  line-height: 1.4;
+  font-size: 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.k1-btn a {
+  font-size: inherit;
+  line-height: inherit;
+  color: #014898;
+  padding: 14px 18px;
+}
+.k1-btn--white {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.k1-btn--blue {
+  background-color: #e4f4fe;
+}
+
+.section-title {
+  font-size: 60px;
+  line-height: 83px;
+  color: #014898;
+  font-weight: bold;
+  position: relative;
+}
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 40px;
+    line-height: 1.4;
+  }
+}
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 30px;
+  }
+}
+.section-title::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 100px;
+  height: 6px;
+  background-color: #e20613;
+}
+
+.k1-required::after {
+  content: "*";
+  color: red;
+  position: relative;
+  top: -3px;
+  font-size: 0.8rem;
+}
+
+.slide-check__choose {
+  display: flex;
+}
+.slide-check__choose label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.slide-check__choose label:hover {
+  cursor: pointer;
+}
+.slide-check__choose label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  appearance: none;
+}
+.slide-check__choose label input:checked + span::before {
+  opacity: 1;
+}
+.slide-check__choose label span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid green;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.slide-check__choose label span::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+.slide-check__choose.error-soc .slide-item__error-field {
+  display: block;
+}
+.slide-check .slide-check-item {
+  margin-right: 15px;
+}
+
+.slides__box {
+  align-items: flex-start;
+}
+.slides__item {
+  flex: 0 0 0;
+  transition: all 0.3s linear;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.slides__item.active {
+  flex: 1 1 100%;
+}
+.slides__item--intro .slide-item__row {
+  border-top: none !important;
+  margin-bottom: 20px;
+  padding-top: 0 !important;
+}
+.slides h3, .slides h5 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.slides h3 {
+  font-size: 1.2rem;
+}
+
+.slide-item__row {
+  padding: 15px 0 0;
+}
+.slide-item__row + .slide-item__row {
+  margin-top: 5px;
+  border-top: 1px solid rgba(128, 128, 128, 0.5);
+}
+.slide-item__error-field {
+  display: none;
+  color: red;
+}
+.slide-item__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.slide-item__checkboxes, .slide-item__radios {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.slide-item__radios label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.slide-item__radios label:hover {
+  cursor: pointer;
+}
+.slide-item__radios label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  appearance: none;
+}
+.slide-item__radios label input:checked + span::before {
+  opacity: 1;
+}
+.slide-item__radios label span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid green;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.slide-item__radios label span::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: green;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+.slide-item__checkboxes label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.slide-item__checkboxes label:hover {
+  cursor: pointer;
+}
+.slide-item__checkboxes label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  appearance: none;
+}
+.slide-item__checkboxes label input:checked + span::before {
+  opacity: 1;
+}
+.slide-item__checkboxes label span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid green;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.slide-item__checkboxes label span::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+.slide-item__checkboxes-row {
+  flex: 0 1 50%;
+  margin-bottom: 10px;
+}
+
+.social-item {
+  display: none;
+}
+.social-item.chosen-soc {
+  display: block;
+}
+
+.header {
+  background-color: green;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+}
+.icon img {
+  filter: opacity(0.5);
+  background-color: red;
+}
+
+.form-send-final {
+  margin: 20px auto;
+  padding: 15px 30px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  transition: box-shadow 0.1s linear;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+.form-send-final:hover {
+  box-shadow: 0 0 5px 2px blue;
+  cursor: pointer;
+}
+
+.slides-table__head, .slides-table__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.slides-table__head.error-skill, .slides-table__row.error-skill {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+.slides-table__placeholder, .slides-table__name, .slides-table__column {
+  flex: 0 1 calc(20% - 5px);
+}
+.slides-table__column {
+  padding: 0 10px;
+  text-align: center;
+}
+.slides-table__row + .slides-table__row {
+  border-top: 1px solid rgba(128, 128, 128, 0.5);
+}
+.slides-table__row:last-child {
+  background-color: white;
+}
+.slides-table__column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slides-table__column label {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid green;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slides-table__column label:hover {
+  cursor: pointer;
+}
+.slides-table__column label input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  appearance: none;
+}
+.slides-table__column label input:checked + span {
+  opacity: 1;
+}
+.slides-table__column label span {
+  width: 16px;
+  height: 16px;
+  background-color: green;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.thanks {
+  text-align: center;
+  font-size: 1.2rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=style.css.map */
