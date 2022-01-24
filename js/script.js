@@ -244,7 +244,7 @@
 			let sendError = false, count = 0, score = 0
 			// return false
 			// const url = "http://e92821av.beget.tech/test.php"
-			const url = "https://cp51846.tmweb.ru/test.php"
+			const url = "https://secretkadr.site/test.php"
 			// return false
 			fetch(url, {
 				method: "post",

@@ -3,9 +3,14 @@
   $data = json_decode(file_get_contents("php://input"));
   $skillsCount = 0;
   $maxSkillsCount = count((array)$data->skills);
+  $senderID = $data->senderId;
   $skillsArr = array();
 //  $addresses = ["kd@ft10.ru"];
-  $addresses = ["az@ft10.ru", "support@ft10.ru","kd@ft10.ru"];
+  $addresses = array(
+    "test-ft-10" => ["az@ft10.ru", "support@ft10.ru","kd@ft10.ru"],
+    "test-new" => ["az@ft10.ru",]
+  );
+  
 //  echo "<pre>", print_r((array)$data->skills), "</pre>";
 //  echo "<pre>", var_dump(count((array)$data->skills)), "</pre>";
   
@@ -435,9 +440,15 @@
     'Reply-To: ' . "kd@ft10.ru" . '' . PHP_EOL;
 //  mail("az@ft10.ru", "test", $message, $headers);
 //  mail("support@ft10.ru", "test", $message, $headers);
-foreach($addresses as $address){
-  mail($address, "test", $message, $headers);
-}
+  if ($addresses[$senderID]) {
+    foreach($addresses[$senderID] as $address){
+      mail($address, "test", $message, $headers);
+    }
+  } else {
+    echo "no-sender";
+    die();
+  }
+
 
 //  0,7*fb/vk(% от общего кол-ва баллов)+0,3*компетенции(%от общего кол-ва баллов)
 //  =ЕСЛИ(C4>8;0*C7;ЕСЛИ(C5+C6<5;0*C7;ЕСЛИ(C4<5;ЕСЛИ(C5+C6>11;1*C7;0,5*C7);0,5*C7)))
