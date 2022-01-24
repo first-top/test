@@ -211,6 +211,10 @@
 			return formBox.querySelector("#user-phone").value
 		}
 		
+		function getSenderId() {
+			return formBox.querySelector("#sender-id").value
+		}
+		
 		function sendRequest(e) {
 			// e.preventDefault()
 			// validateInputText(false, formBox.querySelector("[data-type=\"email\"]"), "email")
@@ -228,6 +232,7 @@
 			formData.currentSocial = currentSocial
 			formData.phone = getPhone()
 			formData.telegram = getTelegramNickname()
+			formData.senderId = getSenderId()
 			// const formData = Object.assign(getFormDataSocial(), getFormDataSkills() )
 			// return false
 			if (checkError()) {
@@ -239,7 +244,7 @@
 			let sendError = false, count = 0, score = 0
 			// return false
 			// const url = "http://e92821av.beget.tech/test.php"
-			const url = "https://cp51846.tmweb.ru//test.php"
+			const url = "https://cp51846.tmweb.ru/test.php"
 			// return false
 			fetch(url, {
 				method: "post",
