@@ -257,7 +257,7 @@
 				.then(data => data.text())
 				.then(test => {
 					console.log(test)
-					putThanksMessage()
+					// putThanksMessage()
 				})
 		}
 		
