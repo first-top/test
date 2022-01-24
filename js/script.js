@@ -245,7 +245,8 @@
 				method: "post",
 				body: JSON.stringify(formData),
 				headers: {
-					"fast-quiz": "new-action"
+					"fast-quiz": "new-action",
+					"access-control-allow-origin" : "https://first-top.github.io/test/"
 				}
 			})
 				.then(data => data.text())
