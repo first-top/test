@@ -4,6 +4,15 @@
 		const sendButton = formBox.querySelector(".slide-item__send")
 		const nextButton = formBox.querySelectorAll(".slide-item__next")
 		const finalButton = formBox.querySelector(".form-send-final")
+		const introPicture = document.querySelector(".intro__picture")
+		const introList = document.querySelector(".intro__list")
+		const introText = document.querySelector(".intro__text")
+		const staticColumnRows = document.querySelectorAll(".skills-block__static-column .skills-block__row[data-name]")
+		const scrollBlock = document.querySelector(".skills-block__scroll-column")
+		console.log(staticColumnRows)
+		
+		
+		
 		
 		const errorEmptyField = "Это обязательный вопрос."
 		const errorInvalidField = "Неверно заполнено поле."
@@ -12,6 +21,22 @@
 		let currentSocial
 		
 		let formData = {}
+		
+		function setScrollRowsHeight() {
+			staticColumnRows.forEach(row => {
+				const rowHeight = row.clientHeight
+				const attribute = row.getAttribute("data-name")
+				scrollBlock.querySelector(`.skills-block__row[data-name=${attribute}]`).style.height = `${rowHeight}px`
+			})
+		}
+		
+		function dropIntroPicture() {
+			if (window.innerWidth <= 480) {
+				introList.before(introPicture)
+			} else {
+				introText.after(introPicture)
+			}
+		}
 		
 		// function chooseCategory() {
 		// 	formBox.querySelectorAll(".slide-check-item").forEach(elem => {
@@ -305,12 +330,15 @@
 				})
 			})
 			chooseSocial()
+			dropIntroPicture()
+			setScrollRowsHeight()
 			// chooseCategory()
 			// sendRequest()
 			// sendButton.addEventListener("click", sendRequest)
 			nextButton.forEach(button => button.addEventListener("click", nextForm))
 			finalButton.addEventListener("click", sendRequest)
-			
+			window.addEventListener("resize", dropIntroPicture)
+			window.addEventListener("resize", setScrollRowsHeight)
 		}
 		
 		init()
