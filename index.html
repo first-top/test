@@ -206,9 +206,15 @@
               <!--                <h1 style="color: blue">Вопросы для ВК</h1>-->
               <div class="questions-block__title">
                 <h3>Тестовое задание для таргетологов ВКонтакте</h3>
+                <div class="default-checkbox">
+                  <label for="show-vk">
+                    <input type="checkbox" id="show-vk" name="show-vk">
+                    <span></span>
+                  </label>
+                </div>
               </div>
               
-              <div class="questions-block__content">
+              <div class="questions-block__content" data-content="vk">
                 <div class="questions-block__description">
                   <h5>В вопросах может быть как один ответ, так и несколько (будьте внимательны).</h5>
                   <h5 class="k1--colored-red">* Обязательно</h5>
@@ -218,38 +224,35 @@
                     <span class="k1-required">
                       Какие модели оплаты применяются в ВКонтакте при настройке рекламных объявлений?
                     </span>
-                    <span class="k1-toggle-question"></span>
                   </div>
-                  <div class="questions-block__rows-wrapper">
-                    <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
-                      <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                        <label for="pay-models-clicks">
-                          <input type="checkbox" id="pay-models-clicks" name="pay-models">
-                          <span></span>
-                          Оплата за клики
-                        </label>
-                      </div>
-                      <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                        <label for="pay-models-shows">
-                          <input type="checkbox" id="pay-models-shows" name="pay-models">
-                          <span></span>
-                          Оплата за количество показов
-                        </label>
-                      </div>
-                      <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                        <label for="pay-models-time">
-                          <input type="checkbox" id="pay-models-time" name="pay-models">
-                          <span></span>
-                          Оплата за время показа
-                        </label>
-                      </div>
-                      <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                        <label for="pay-models-auto">
-                          <input type="checkbox" id="pay-models-auto" name="pay-models">
-                          <span></span>
-                          Автоматическое управление ценой
-                        </label>
-                      </div>
+                  <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="pay-models-clicks">
+                        <input type="checkbox" id="pay-models-clicks" name="pay-models">
+                        <span></span>
+                        Оплата за клики
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="pay-models-shows">
+                        <input type="checkbox" id="pay-models-shows" name="pay-models">
+                        <span></span>
+                        Оплата за количество показов
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="pay-models-time">
+                        <input type="checkbox" id="pay-models-time" name="pay-models">
+                        <span></span>
+                        Оплата за время показа
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="pay-models-auto">
+                        <input type="checkbox" id="pay-models-auto" name="pay-models">
+                        <span></span>
+                        Автоматическое управление ценой
+                      </label>
                     </div>
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>

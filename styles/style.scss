@@ -172,6 +172,7 @@
 
 .default-checkbox {
 	padding-right: 15px;
+
 	label {
 		display: flex;
 		align-items: center;
@@ -247,6 +248,7 @@
 
 .default-radio {
 	padding-right: 15px;
+
 	label {
 		align-items: center;
 		min-height: 32px;
@@ -450,14 +452,17 @@
 .k1-toggle-question {
 	margin-left: 40px;
 	position: relative;
+
 	&:hover {
 		cursor: pointer;
 	}
+
 	&:not(.hide) {
 		&::before {
 			transition-delay: .3s;
 		}
 	}
+
 	&.hide {
 		&::after {
 			//right: 0;
@@ -466,6 +471,7 @@
 			opacity: 1;
 			transition-delay: .3s;
 		}
+
 		&::before {
 			right: 0;
 			top: -10px;
@@ -474,6 +480,7 @@
 
 		}
 	}
+
 	&::before,
 	&::after {
 		content: "";
@@ -484,12 +491,14 @@
 		border-top: 1px solid $mainRed;
 		transition: opacity .5s linear, top .5s linear;
 	}
+
 	&::before {
 		right: 0;
 		top: 5px;
 		transform: rotate(45deg);
 
 	}
+
 	&::after {
 		right: 0;
 		top: 10px;
@@ -1086,16 +1095,28 @@
 	&__content {
 		background-color: white;
 		padding: 10px 18px;
+		display: none;
 	}
 
-	&__title h3 {
-		font-weight: 600;
-		font-size: 24px;
-		line-height: 150%;
-		color: white;
-		padding: 8px 8px 20px;
-		@media (max-width: $mediaM) {
-			font-size: 20px;
+	&__title {
+		display: flex;
+		align-items: center;
+		padding: 8px 8px 6px;
+		h3 {
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 150%;
+			color: white;
+
+			@media (max-width: $mediaM) {
+				font-size: 20px;
+			}
+		}
+		.default-checkbox {
+			margin-left: 30px;
+			label input:checked + span {
+				border-color: white;
+			}
 		}
 	}
 
@@ -1189,8 +1210,10 @@
 
 	&__static-column {
 		flex: 0 0 243px;
+
 		.skills-block__head {
 			position: relative;
+
 			&::before {
 				content: "";
 				display: block;
@@ -1203,38 +1226,41 @@
 				z-index: -1;
 			}
 		}
+
 		.skills-block__row {
 
 		}
+
 		//.skills-block__row {
-			.skills-block__row + .skills-block__row {
-				&::before {
-					content: "";
-					display: block;
-					top: 0;
-					left: 0;
-					width: 100vw;
-					height: 2px;
-					border-radius: 2px;
-					background-color: $grey;
-					position: absolute;
-				}
+		.skills-block__row + .skills-block__row {
+			&::before {
+				content: "";
+				display: block;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 2px;
+				border-radius: 2px;
+				background-color: $grey;
+				position: absolute;
+			}
+		}
+
+		.skills-block__row:last-child {
+			&::after {
+				content: "";
+				display: block;
+				bottom: 0;
+				left: 0;
+				width: 100vw;
+				height: 2px;
+				border-radius: 2px;
+				background-color: $mainRed;
+				position: absolute;
 			}
 
-			.skills-block__row:last-child {
-				&::after {
-					content: "";
-					display: block;
-					bottom: 0;
-					left: 0;
-					width: 100vw;
-					height: 2px;
-					border-radius: 2px;
-					background-color: $mainRed;
-					position: absolute;
-				}
+		}
 
-			}
 		//}
 
 		@media (max-width: $mediaM) {

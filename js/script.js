@@ -9,15 +9,11 @@
 		const introText = document.querySelector(".intro__text")
 		const staticColumnRows = document.querySelectorAll(".skills-block__static-column .skills-block__row[data-name]")
 		const scrollBlock = document.querySelector(".skills-block__scroll-column")
-		const questionToggleButtons = document.querySelectorAll(".k1-toggle-question")
-		const questionToggleRows = document.querySelectorAll(".questions-block__rows")
-		
-		console.log(staticColumnRows)
+		// const questionToggleButtons = document.querySelectorAll(".k1-toggle-question")
+		// const questionToggleRows = document.querySelectorAll(".questions-block__rows")
 		
 		
-		questionToggleButtons.forEach(button => {
-			button.addEventListener("click", toggleQuestion)
-		})
+
 		
 		const errorEmptyField = "Это обязательный вопрос."
 		const errorInvalidField = "Неверно заполнено поле."
@@ -70,6 +66,21 @@
 				row.style.transition = "max-height .5s linear"
 			}
 		}
+		
+		function showTestContent(input, content) {
+			console.log(content)
+			const block = document.querySelector(`.questions-block__content[data-content="${content}"]`)
+			console.log(block)
+			if (input.checked) {
+				block.style.display = "block"
+				input.closest(".questions-block__title").style.paddingBottom = "20px"
+			} else {
+				block.style.display = "none"
+				input.closest(".questions-block__title").style.paddingBottom = "6px"
+			}
+			
+		}
+
 		
 		function setScrollRowsHeight() {
 			staticColumnRows.forEach(row => {
@@ -147,7 +158,7 @@
 					
 					// formBox.querySelector(`.social-item--${id}`).classList.add("chosen-soc")
 					// setTimeout(()=> {
-						setRowsHeight(true)
+					// 	setRowsHeight(true)
 					// }, 300)
 					
 				})
@@ -369,6 +380,10 @@
 			formBox.querySelectorAll("input[type='checkbox']").forEach(input => {
 				input.addEventListener("change", function() {
 					if (input.getAttribute("name") === "chose-social") return false
+					if (input.getAttribute("name") === "show-vk") {
+						showTestContent(input, input.getAttribute("name").replace("show-", ""))
+						return false
+					}
 					if (![...document.getElementsByName(this.getAttribute("name"))].filter(input => input.checked).length) {
 						setError(false, input.closest(".slide-item__row"), "checkbox")
 					} else {
@@ -386,7 +401,7 @@
 			chooseSocial()
 			dropIntroPicture()
 			setScrollRowsHeight()
-			setRowsHeight()
+			// setRowsHeight()
 			// chooseCategory()
 			// sendRequest()
 			// sendButton.addEventListener("click", sendRequest)
@@ -394,7 +409,7 @@
 			finalButton.addEventListener("click", sendRequest)
 			window.addEventListener("resize", dropIntroPicture)
 			window.addEventListener("resize", setScrollRowsHeight)
-			window.addEventListener("resize", setRowsHeight)
+			// window.addEventListener("resize", setRowsHeight)
 		}
 		
 		init()
