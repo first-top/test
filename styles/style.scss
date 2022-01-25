@@ -171,11 +171,12 @@
 }
 
 .default-checkbox {
+	padding-right: 15px;
 	label {
 		display: flex;
 		align-items: center;
-		height: 32px;
-		width: max-content;
+		min-height: 32px;
+		max-width: max-content;
 		@media (max-width: $mediaL) {
 			min-height: 32px;
 			height: auto;
@@ -245,10 +246,11 @@
 }
 
 .default-radio {
+	padding-right: 15px;
 	label {
 		align-items: center;
-		height: 32px;
-		width: max-content;
+		min-height: 32px;
+		max-width: max-content;
 		display: flex;
 		@media (max-width: $mediaL) {
 			min-height: 32px;
@@ -443,6 +445,58 @@
 	position: relative;
 	top: -3px;
 	font-size: .8rem;
+}
+
+.k1-toggle-question {
+	margin-left: 40px;
+	position: relative;
+	&:hover {
+		cursor: pointer;
+	}
+	&:not(.hide) {
+		&::before {
+			transition-delay: .3s;
+		}
+	}
+	&.hide {
+		&::after {
+			//right: 0;
+			top: -5px;
+			//transform: rotate(-135deg);
+			opacity: 1;
+			transition-delay: .3s;
+		}
+		&::before {
+			right: 0;
+			top: -10px;
+			opacity: 0;
+			transform: rotate(45deg);
+
+		}
+	}
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		border-left: 1px solid $mainRed;
+		border-top: 1px solid $mainRed;
+		transition: opacity .5s linear, top .5s linear;
+	}
+	&::before {
+		right: 0;
+		top: 5px;
+		transform: rotate(45deg);
+
+	}
+	&::after {
+		right: 0;
+		top: 10px;
+		transform: rotate(-135deg);
+		opacity: 0;
+		//transition-delay: .5s;
+	}
 }
 
 .slide-check {
@@ -1085,6 +1139,10 @@
 			margin-bottom: 15px;
 		}
 
+	}
+
+	&__rows {
+		transition: max-height .5s linear;
 	}
 
 	&__row {

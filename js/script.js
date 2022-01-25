@@ -9,10 +9,15 @@
 		const introText = document.querySelector(".intro__text")
 		const staticColumnRows = document.querySelectorAll(".skills-block__static-column .skills-block__row[data-name]")
 		const scrollBlock = document.querySelector(".skills-block__scroll-column")
+		const questionToggleButtons = document.querySelectorAll(".k1-toggle-question")
+		const questionToggleRows = document.querySelectorAll(".questions-block__rows")
+		
 		console.log(staticColumnRows)
 		
 		
-		
+		questionToggleButtons.forEach(button => {
+			button.addEventListener("click", toggleQuestion)
+		})
 		
 		const errorEmptyField = "Это обязательный вопрос."
 		const errorInvalidField = "Неверно заполнено поле."
@@ -21,6 +26,26 @@
 		let currentSocial
 		
 		let formData = {}
+		
+		function setRowsHeight() {
+			questionToggleRows.forEach(row => {
+				row.setAttribute("data-max-height", row.clientHeight)
+				row.style.maxHeight = `${row.clientHeight}px`
+			})
+		}
+		
+		function toggleQuestion(e) {
+			const target = e.target
+			const row = target.closest(".questions-block__row").querySelector(".questions-block__rows")
+			target.classList.toggle("hide")
+			if (target.classList.contains("hide")) {
+				row.style.maxHeight = `0px`
+				row.style.overflow = "hidden"
+			} else {
+				row.style.maxHeight = `${row.getAttribute("data-max-height")}px`
+				row.style.overflow = "hidden"
+			}
+		}
 		
 		function setScrollRowsHeight() {
 			staticColumnRows.forEach(row => {
@@ -75,6 +100,7 @@
 			formBox.querySelectorAll("input[name=\"chose-social\"]").forEach(elem => {
 				elem.addEventListener("change", function () {
 					// console.log("change")
+					
 					id = this.getAttribute("id")
 					this.checked
 						? formBox.querySelector(`.social-item--${id}`).classList.add("chosen-soc")
@@ -96,9 +122,10 @@
 					// })
 					
 					// formBox.querySelector(`.social-item--${id}`).classList.add("chosen-soc")
-					
+					setRowsHeight()
 				})
 				if (elem.checked) {
+					
 					id = elem.getAttribute("id")
 					formBox.querySelector(`.social-item--${id}`).classList.add("chosen-soc")
 				}
@@ -332,6 +359,7 @@
 			chooseSocial()
 			dropIntroPicture()
 			setScrollRowsHeight()
+			setRowsHeight()
 			// chooseCategory()
 			// sendRequest()
 			// sendButton.addEventListener("click", sendRequest)
@@ -339,6 +367,7 @@
 			finalButton.addEventListener("click", sendRequest)
 			window.addEventListener("resize", dropIntroPicture)
 			window.addEventListener("resize", setScrollRowsHeight)
+			window.addEventListener("resize", setRowsHeight)
 		}
 		
 		init()
