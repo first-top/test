@@ -1033,8 +1033,31 @@ body {
 .questions-block__title .default-checkbox {
   margin-left: 30px;
 }
-.questions-block__title .default-checkbox label input:checked + span {
-  border-color: white;
+.questions-block__title .default-checkbox label span {
+  background-color: transparent;
+  border: none;
+}
+.questions-block__title .default-checkbox label span::after, .questions-block__title .default-checkbox label span::before {
+  width: 15px;
+  height: 15px;
+  border: 2px solid black;
+  opacity: 1;
+  left: 3px;
+  top: 5px;
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+.questions-block__title .default-checkbox label span::after {
+  top: -2px;
+}
+.questions-block__title .default-checkbox label input:checked + span::after, .questions-block__title .default-checkbox label input:checked + span::before {
+  transform: rotate(135deg);
+  top: 12px;
+}
+.questions-block__title .default-checkbox label input:checked + span::after {
+  top: 5px;
 }
 .questions-block__description {
   margin-bottom: 6px;

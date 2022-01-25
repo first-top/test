@@ -1114,9 +1114,48 @@
 		}
 		.default-checkbox {
 			margin-left: 30px;
-			label input:checked + span {
-				border-color: white;
+			label {
+				span {
+					background-color: transparent;
+					border: none;
+					&::after,
+					&::before {
+						width: 15px;
+						height: 15px;
+						border: 2px solid black;
+						opacity: 1;
+						left: 3px;
+						top: 5px;
+						background-color: transparent;
+						border-top: none;
+						border-right: none;
+						transform: rotate(-45deg);
+					}
+					&::after {
+						top: -2px;
+						//display: block;
+						//opacity: 1;
+						//width: 15px;
+						//height: 15px;
+						//border: 2px solid black;
+
+					}
+				}
+				input:checked + span {
+					&::after,
+					&::before {
+						transform: rotate(135deg);
+						top: 12px;
+					}
+					&::after{
+						top: 5px;
+					}
+				}
 			}
+
+			//label input:checked + span {
+			//	border-color: white;
+			//}
 		}
 	}
 
