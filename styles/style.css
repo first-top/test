@@ -1067,9 +1067,6 @@ body {
     margin-bottom: 15px;
   }
 }
-.questions-block__rows {
-  transition: max-height 0.5s linear;
-}
 .questions-block__row {
   position: relative;
   padding: 20px 0 10px;

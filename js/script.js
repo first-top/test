@@ -27,23 +27,47 @@
 		
 		let formData = {}
 		
-		function setRowsHeight() {
+		function setRowsHeight(choose) {
+			console.log(choose)
+			if (choose ) {
+				questionToggleButtons.forEach(button => {
+					button.classList.add("hide")
+				})
+			}
 			questionToggleRows.forEach(row => {
-				row.setAttribute("data-max-height", row.clientHeight)
-				row.style.maxHeight = `${row.clientHeight}px`
+				const height = row.clientHeight
+				if (row.closest(".questions-block__rows-wrapper")) {
+					row.closest(".questions-block__rows-wrapper").style.transition = "max-height .0s linear"
+				}
+				row.setAttribute("data-max-height", height)
+				// console.log(row)
+				// console.log(height)
+				if (row.closest(".questions-block__rows-wrapper")) {
+					row.closest(".questions-block__rows-wrapper").style.maxHeight = `${0}px`
+					row.closest(".questions-block__rows-wrapper").style.overflow = `hidden`
+				}
+				
+				setTimeout(()=> {
+					// console.log("after: ", height)
+				}, 100)
+				// row.style.maxHeight = `${height}px`
 			})
 		}
 		
 		function toggleQuestion(e) {
 			const target = e.target
-			const row = target.closest(".questions-block__row").querySelector(".questions-block__rows")
+			const row = target.closest(".questions-block__row").querySelector(".questions-block__rows-wrapper")
+			console.log(row)
 			target.classList.toggle("hide")
+			
 			if (target.classList.contains("hide")) {
 				row.style.maxHeight = `0px`
 				row.style.overflow = "hidden"
+				row.style.transition = "max-height .5s linear"
 			} else {
-				row.style.maxHeight = `${row.getAttribute("data-max-height")}px`
+				row.style.maxHeight = `${row.querySelector(".questions-block__rows").getAttribute("data-max-height")}px`
 				row.style.overflow = "hidden"
+				row.style.transition = "max-height .5s linear"
 			}
 		}
 		
@@ -122,7 +146,10 @@
 					// })
 					
 					// formBox.querySelector(`.social-item--${id}`).classList.add("chosen-soc")
-					setRowsHeight()
+					// setTimeout(()=> {
+						setRowsHeight(true)
+					// }, 300)
+					
 				})
 				if (elem.checked) {
 					

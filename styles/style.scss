@@ -1141,8 +1141,9 @@
 
 	}
 
-	&__rows {
-		transition: max-height .5s linear;
+	&__rows-wrapper {
+		//transition: max-height .5s linear;
+		//max-height: attr(data-max-height)px;
 	}
 
 	&__row {
