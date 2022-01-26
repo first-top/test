@@ -959,6 +959,12 @@
 		}
 	}
 
+	&__circles {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
 	&__circle {
 		position: absolute;
 
@@ -1122,10 +1128,10 @@
 					&::before {
 						width: 15px;
 						height: 15px;
-						border: 2px solid black;
+						border: 3px solid white;
 						opacity: 1;
 						left: 3px;
-						top: 5px;
+						top: 7px;
 						background-color: transparent;
 						border-top: none;
 						border-right: none;
@@ -1145,7 +1151,7 @@
 					&::after,
 					&::before {
 						transform: rotate(135deg);
-						top: 12px;
+						top: 14px;
 					}
 					&::after{
 						top: 5px;
@@ -1337,7 +1343,9 @@
 		position: relative;
 		align-items: stretch;
 		min-height: 56px;
-
+		&.error-skill {
+			color : red;
+		}
 		.skills-block__name,
 		.skills-block__column {
 			padding: 12px 0;

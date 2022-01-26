@@ -145,16 +145,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="contacts-block__circle contacts-block__circle--bigger">
-                  <!--                  <svg>-->
-                  <!--                    <use xlink:href="/img/sprite.svg#circle"></use>-->
-                  <!--                  </svg>-->
+                <div class="contacts-block__circles" style="display: none">
+                  <div class="contacts-block__circle contacts-block__circle--bigger">
+                  </div>
+                  <div class="contacts-block__circle contacts-block__circle--smaller">
+                  </div>
                 </div>
-                <div class="contacts-block__circle contacts-block__circle--smaller">
-                  <!--                  <svg>-->
-                  <!--                    <use xlink:href="/img/sprite.svg#circle"></use>-->
-                  <!--                  </svg>-->
-                </div>
+                
               </div>
               <div class="choose-category">
                 <div class="choose-category__circles">
@@ -586,8 +583,14 @@
             <div class="slides__item questions-block social-item social-item--fb slides__item--fb slide-item">
               <div class="questions-block__title">
                 <h3>Тестовое задание для таргетологов Facebook</h3>
+                <div class="default-checkbox">
+                  <label for="show-fb">
+                    <input type="checkbox" id="show-fb" name="show-fb">
+                    <span></span>
+                  </label>
+                </div>
               </div>
-              <div class="questions-block__content">
+              <div class="questions-block__content" data-content="fb">
                 <div class="questions-block__description">
                   <h5>В вопросах может быть как один ответ, так и несколько (будьте внимательны).</h5>
                   <h5 class="k1--colored-red">* Обязательно</h5>
@@ -2044,7 +2047,7 @@
                   </div>
                 </div>
                 <div style="display:none" class="skills-block__row skills-block__button">
-                  <div class="form-send-final">
+                  <div class="form-send-final111 123123">
                     отправить
                   </div>
                 </div>

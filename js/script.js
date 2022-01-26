@@ -1,7 +1,7 @@
 (function () {
 	window.addEventListener("DOMContentLoaded", () => {
 		const formBox = document.querySelector(".k1-form-slides")
-		const sendButton = formBox.querySelector(".slide-item__send")
+		// const sendButton = formBox.querySelector(".form-send-final")
 		const nextButton = formBox.querySelectorAll(".slide-item__next")
 		const finalButton = formBox.querySelector(".form-send-final")
 		const introPicture = document.querySelector(".intro__picture")
@@ -23,54 +23,52 @@
 		
 		let formData = {}
 		
-		function setRowsHeight(choose) {
-			console.log(choose)
-			if (choose ) {
-				questionToggleButtons.forEach(button => {
-					button.classList.add("hide")
-				})
-			}
-			questionToggleRows.forEach(row => {
-				const height = row.clientHeight
-				if (row.closest(".questions-block__rows-wrapper")) {
-					row.closest(".questions-block__rows-wrapper").style.transition = "max-height .0s linear"
-				}
-				row.setAttribute("data-max-height", height)
+		// function setRowsHeight(choose) {
+		// 	console.log(choose)
+		// 	if (choose ) {
+		// 		questionToggleButtons.forEach(button => {
+		// 			button.classList.add("hide")
+		// 		})
+		// 	}
+		// 	questionToggleRows.forEach(row => {
+		// 		const height = row.clientHeight
+		// 		if (row.closest(".questions-block__rows-wrapper")) {
+		// 			row.closest(".questions-block__rows-wrapper").style.transition = "max-height .0s linear"
+		// 		}
+		// 		row.setAttribute("data-max-height", height)
 				// console.log(row)
 				// console.log(height)
-				if (row.closest(".questions-block__rows-wrapper")) {
-					row.closest(".questions-block__rows-wrapper").style.maxHeight = `${0}px`
-					row.closest(".questions-block__rows-wrapper").style.overflow = `hidden`
-				}
-				
-				setTimeout(()=> {
+				// if (row.closest(".questions-block__rows-wrapper")) {
+				// 	row.closest(".questions-block__rows-wrapper").style.maxHeight = `${0}px`
+				// 	row.closest(".questions-block__rows-wrapper").style.overflow = `hidden`
+				// }
+				//
+				// setTimeout(()=> {
 					// console.log("after: ", height)
-				}, 100)
+				// }, 100)
 				// row.style.maxHeight = `${height}px`
-			})
-		}
+		// 	})
+		// }
 		
-		function toggleQuestion(e) {
-			const target = e.target
-			const row = target.closest(".questions-block__row").querySelector(".questions-block__rows-wrapper")
-			console.log(row)
-			target.classList.toggle("hide")
-			
-			if (target.classList.contains("hide")) {
-				row.style.maxHeight = `0px`
-				row.style.overflow = "hidden"
-				row.style.transition = "max-height .5s linear"
-			} else {
-				row.style.maxHeight = `${row.querySelector(".questions-block__rows").getAttribute("data-max-height")}px`
-				row.style.overflow = "hidden"
-				row.style.transition = "max-height .5s linear"
-			}
-		}
+		// function toggleQuestion(e) {
+		// 	const target = e.target
+		// 	const row = target.closest(".questions-block__row").querySelector(".questions-block__rows-wrapper")
+		// 	console.log(row)
+		// 	target.classList.toggle("hide")
+		//
+		// 	if (target.classList.contains("hide")) {
+		// 		row.style.maxHeight = `0px`
+		// 		row.style.overflow = "hidden"
+		// 		row.style.transition = "max-height .5s linear"
+		// 	} else {
+		// 		row.style.maxHeight = `${row.querySelector(".questions-block__rows").getAttribute("data-max-height")}px`
+		// 		row.style.overflow = "hidden"
+		// 		row.style.transition = "max-height .5s linear"
+		// 	}
+		// }
 		
 		function showTestContent(input, content) {
-			console.log(content)
 			const block = document.querySelector(`.questions-block__content[data-content="${content}"]`)
-			console.log(block)
 			if (input.checked) {
 				block.style.display = "block"
 				input.closest(".questions-block__title").style.paddingBottom = "20px"
@@ -145,6 +143,19 @@
 					!getChosenSocial().length
 						? formBox.querySelector(".slide-check__choose").classList.add("error-soc", "global-has-error")
 						: formBox.querySelector(".slide-check__choose").classList.remove("error-soc", "global-has-error")
+					
+					if (!elem.checked) {
+						console.log("no-check")
+						const input = document.querySelector(`input[name=show-${id}]`)
+						input.checked = false
+						console.log(document.querySelectorAll(`[data-content=${id}] .global-has-error`))
+						document.querySelectorAll(`[data-content=${id}] .global-has-error`).forEach(error => {
+							error.classList.remove("global-has-error")
+						})
+						showTestContent(input, id)
+						// document.querySelector(`.questions-block__content[data-content=${id}]`).style.display = "none"
+					}
+					
 					// removeError(false, formBox.querySelector(".slide-check__choose"))
 					// if (this.checked) {
 					// 	formBox.querySelector(`.social-item--${id}`).classList.add("chosen-soc")
@@ -215,6 +226,19 @@
 		}
 		
 		function scrollToError() {
+			const blockContent = checkError().closest(".questions-block__content")
+			console.log(checkError())
+			if (blockContent ) {
+				const errorSocial =  blockContent.getAttribute("data-content")
+				console.log(errorSocial)
+				const attr = blockContent.getAttribute("data-content")
+				console.log(attr)
+				if (!document.querySelector(`input[name=show-${attr}]`).checked) {
+					document.querySelector(`input[name=show-${attr}]`).click()
+				}
+				// document.querySelector(`input[name=show-${attr}]`).classList.
+				// checkError().closest(".questions-block__content").style.display = "none"
+			}
 			checkError().scrollIntoView({behavior: 'smooth'});
 		}
 		
@@ -271,13 +295,18 @@
 			return data
 		}
 		
+		function resetShowSocialInput() {
+			document.querySelector("input[name='show-vk']").checked = false
+			document.querySelector("input[name='show-fb']").checked = false
+		}
+		
 		function getFormDataSkills() {
 			let data = {}
-			formBox.querySelectorAll(`.slides__item--skills [data-type]`).forEach(row => {
-				const typeName = row.getAttribute("data-type")
+			formBox.querySelectorAll(`.skills-block__static-column [data-name]`).forEach(row => {
+				const typeName = row.getAttribute("data-name")
 				const arrFields = document.getElementsByName(typeName)
 				data[typeName] = {
-					title: row.querySelector(".slides-table__name").textContent.trim(),
+					title: row.querySelector(".skills-block__name").textContent.trim(),
 					// score: [...arrFields].filter(elem => elem.checked)[0].value
 				}
 				if ([...arrFields].filter(elem => elem.checked)[0]) {
@@ -309,12 +338,15 @@
 			// e.preventDefault()
 			// validateInputText(false, formBox.querySelector("[data-type=\"email\"]"), "email")
 			validateInputText(false, formBox.querySelector("[data-type=\"telegram-nickname\"]"), "text")
+			validateInputText(false, formBox.querySelector("[data-type=\"sender-id\"]"), "text")
 			const socials = getChosenSocial()
-			
+			console.log(socials)
 			if (!socials || !socials.length) {
 				setError(false, formBox.querySelector(".slide-check__choose"), "socials")
 				// return false
 			}
+			if (formData["social_vk"]) delete formData["social_vk"]
+			if (formData["social_fb"]) delete formData["social_fb"]
 			socials.forEach(elem => {
 				formData[`social_${elem.getAttribute("id")}`] = getFormDataSocial(elem.getAttribute("id"))
 			})
@@ -325,6 +357,8 @@
 			formData.senderId = getSenderId()
 			// const formData = Object.assign(getFormDataSocial(), getFormDataSkills() )
 			// return false
+			// console.log("send")
+			console.log(formData)
 			if (checkError()) {
 				// console.log(checkError())
 				scrollToError()
@@ -347,7 +381,7 @@
 				.then(data => data.text())
 				.then(test => {
 					console.log(test)
-					// putThanksMessage()
+					putThanksMessage()
 				})
 		}
 		// test-k1
@@ -380,7 +414,7 @@
 			formBox.querySelectorAll("input[type='checkbox']").forEach(input => {
 				input.addEventListener("change", function() {
 					if (input.getAttribute("name") === "chose-social") return false
-					if (input.getAttribute("name") === "show-vk") {
+					if (input.getAttribute("name") === "show-vk" || input.getAttribute("name") === "show-fb") {
 						showTestContent(input, input.getAttribute("name").replace("show-", ""))
 						return false
 					}
@@ -394,13 +428,18 @@
 			formBox.querySelectorAll("input[type='radio']").forEach(input => {
 				input.addEventListener("change", function() {
 					if (input.closest(".slide-item__row")) removeError(false, input.closest(".slide-item__row"))
-					if (input.closest(".slides-table__row")) input.closest(".slides-table__row").classList.remove("error-skill", "global-has-error")
+					if (input.closest(".skills-block__row")) {
+						const name = input.getAttribute("name")
+						document.querySelector(`.skills-block__row[data-name=${name}]`).classList.remove("error-skill", "global-has-error")
+						// input.closest(".slides-table__row").classList.remove("error-skill", "global-has-error")
+					}
 					//
 				})
 			})
 			chooseSocial()
 			dropIntroPicture()
 			setScrollRowsHeight()
+			resetShowSocialInput()
 			// setRowsHeight()
 			// chooseCategory()
 			// sendRequest()

@@ -871,6 +871,11 @@ body {
 .contacts-block__field-title span {
   font-weight: 400;
 }
+.contacts-block__circles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 .contacts-block__circle {
   position: absolute;
 }
@@ -1040,10 +1045,10 @@ body {
 .questions-block__title .default-checkbox label span::after, .questions-block__title .default-checkbox label span::before {
   width: 15px;
   height: 15px;
-  border: 2px solid black;
+  border: 3px solid white;
   opacity: 1;
   left: 3px;
-  top: 5px;
+  top: 7px;
   background-color: transparent;
   border-top: none;
   border-right: none;
@@ -1054,7 +1059,7 @@ body {
 }
 .questions-block__title .default-checkbox label input:checked + span::after, .questions-block__title .default-checkbox label input:checked + span::before {
   transform: rotate(135deg);
-  top: 12px;
+  top: 14px;
 }
 .questions-block__title .default-checkbox label input:checked + span::after {
   top: 5px;
@@ -1203,6 +1208,9 @@ body {
   position: relative;
   align-items: stretch;
   min-height: 56px;
+}
+.skills-block__row.error-skill {
+  color: red;
 }
 .skills-block__row .skills-block__name,
 .skills-block__row .skills-block__column {
