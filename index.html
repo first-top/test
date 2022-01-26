@@ -21,26 +21,14 @@
       <div class="intro">
         <div class="circles-block circles-block--left">
           <div class="circle-bigger">
-            <!--            <svg>-->
-            <!--              <use xlink:href="/img/sprite.svg#circle"></use>-->
-            <!--            </svg>-->
           </div>
           <div class="circle-smaller">
-            <!--            <svg>-->
-            <!--              <use xlink:href="/img/sprite.svg#circle"></use>-->
-            <!--            </svg>-->
           </div>
         </div>
         <div class="circles-block circles-block--right">
           <div class="circle-bigger">
-            <!--            <svg>-->
-            <!--              <use xlink:href="/img/sprite.svg#circle"></use>-->
-            <!--            </svg>-->
           </div>
           <div class="circle-smaller">
-            <!--            <svg>-->
-            <!--              <use xlink:href="/img/sprite.svg#circle"></use>-->
-            <!--            </svg>-->
           </div>
         </div>
         <div class="container">
@@ -75,9 +63,6 @@
               <img src="img/photo.png" alt="photo">
               <div class="intro__dots">
                 <img src="/img/dots.svg" alt="dots">
-                <!--                <svg>-->
-                <!--                  <use xlink:href="/img/sprite.svg#dots"></use>-->
-                <!--                </svg>-->
               </div>
             </div>
           </div>
@@ -86,21 +71,7 @@
       <div class="container">
         <div class="slides k1-form-slides">
           <form action="">
-            <!--            <div class="slides__box flex-body">-->
             <div class="slides__item slides__item--intro slide-check ">
-              <!--                <div class="slide-item__row questions-block__row" data-type="email">-->
-              <!--                  <div class="slide-item__title questions-block__name k1-required">-->
-              <!--                    Электронная почта-->
-              <!--                  </div>-->
-              <!--                  <div class="slide-item__input-text">-->
-              <!--                    <label for="user-email">-->
-              <!--                      <input type="email" id="user-email" name="email">-->
-              <!--                    </label>-->
-              <!--                  </div>-->
-              <!--                  <div class="slide-item__error-field">-->
-              <!--                    Это обязательный вопрос.-->
-              <!--                  </div>-->
-              <!--                </div>-->
               <div class="contacts-block flex-body">
                 <div class="contacts-block__title">
                   <h3>
@@ -108,6 +79,19 @@
                   </h3>
                 </div>
                 <div class="contacts-block__fields">
+                  <div class="slide-item__row contacts-block__field" data-type="name">
+                    <div class="slide-item__title contacts-block__field-title">
+                      Имя
+                    </div>
+                    <div class="slide-item__input-text">
+                      <label for="user-name">
+                        <input type="text" id="user-name" name="name">
+                      </label>
+                    </div>
+                    <div class="slide-item__error-field">
+                      Это обязательное поле.
+                    </div>
+                  </div>
                   <div class="slide-item__row contacts-block__field" data-type="phone">
                     <div class="slide-item__title contacts-block__field-title">
                       Номер телефона
@@ -118,6 +102,7 @@
                       </label>
                     </div>
                   </div>
+                  
                   <div class="slide-item__row contacts-block__field" data-type="telegram-nickname">
                     <div class="slide-item__title k1-required contacts-block__field-title">
                       Ваш ник в Telegram <span>(можно найти в профиле, начинается с символа @)</span>
@@ -166,7 +151,7 @@
                 </div>
                 <p class="choose-category__text">
                   Вы можете пройти тест для двух соц. сетей или для одной.
-                  <span>КАЖДАЯ соц. сеть оценивается отдельно.</span>
+                  <span>КАЖДАЯ соц. сеть оценивается отдельно!</span>
                 </p>
                 <p class="choose-category__text">
                   Тест состоит из двух частей, каждая из которых имеет свой вклад в общую оценку. Вес первой части на
@@ -970,28 +955,7 @@
                 <!--                string-->
                 <!--                string-->
                 <!--                string-->
-                <div class="slide-item__row questions-block__row" data-type="success-projects">
-                  <div class="slide-item__title questions-block__name k1-required">
-                    У вас было более 10 успешных проектов?
-                  </div>
-                  <div class="slide-item__radios questions-block__rows">
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="success-projects-yes">
-                        <input type="radio" id="success-projects-yes" name="success-projects">
-                        <span></span>
-                        Да
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="success-projects-no">
-                        <input type="radio" id="success-projects-no" name="success-projects">
-                        <span></span>
-                        Нет
-                      </label>
-                    </div>
-                  </div>
-                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
-                </div>
+               
               </div>
             </div>
             
@@ -1096,6 +1060,9 @@
                     </div>
                   </div>
                   <div class="skills-block__scroll-column">
+                    <div class="skills-block__arrow-left">
+                      <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>
+                    </div>
                     <div class="skills-block__head">
                       <div class="skills-block__column" data-skill="low">
                         Не знаю от слова <br> "совсем"
@@ -1526,9 +1493,34 @@
                         </label>
                       </div>
                     </div>
+                    <div class="skills-block__arrow-right">
+                      <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>
+                    </div>
                   </div>
                 </div>
-                <div class="skills-block__row-full skills-block__button">
+                <div class="skills-block__row success-projects" data-type="success-projects">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    У вас было более 10 успешных проектов?
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="success-projects-yes">
+                        <input type="radio" id="success-projects-yes" name="success-projects">
+                        <span></span>
+                        Да
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="success-projects-no">
+                        <input type="radio" id="success-projects-no" name="success-projects">
+                        <span></span>
+                        Нет
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="skills-block__row-full  skills-block__button">
                   <div class="form-send-final">
                     отправить
                   </div>
@@ -2042,6 +2034,7 @@
                     </label>
                   </div>
                 </div>
+               
                 <div style="display:none" class="skills-block__row skills-block__button">
                   <div class="form-send-final111 123123">
                     отправить

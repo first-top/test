@@ -135,9 +135,10 @@
 			main.style.padding = "0"
 			main.innerHTML = `
     <div class="thanks" >
-      Спасибо! Ваши результаты переданы, мы с Вами свяжемся
+      Спасибо! Ваши результаты переданы.
     </div>
   `
+			document.querySelector(".contacts-block__circles").remove()
 			// document.write()
 		}
 		
@@ -345,12 +346,33 @@
 			return formBox.querySelector("#user-email").value
 		}
 		
+		function getName() {
+			return formBox.querySelector("#user-name").value
+		}
+		
 		function getPhone() {
 			return formBox.querySelector("#user-phone").value
 		}
 		
 		function getSenderId() {
 			return formBox.querySelector("#sender-id").value
+		}
+		
+		function getSuccessProjects() {
+			if (
+				[...formBox.querySelectorAll("input[name='success-projects']")]
+					.filter(elem => elem.checked)[0]
+			) {
+				return [...formBox.querySelectorAll("input[name='success-projects']")]
+					.filter(elem => elem.checked)[0]
+					.getAttribute("id")
+			} else {
+				setError(false, document.querySelector(".skills-block__row.success-projects"), "radio")
+			}
+			// return [...formBox.querySelectorAll("input[name='success-projects']")]
+			// 	.filter(elem => elem.checked)[0]
+			// 	.getAttribute("id") || setError(false, document.querySelector(".skills-block__row.success-projects"), "radio")
+			// return [...formBox.querySelectorAll("input[name='success-projects']")].filter(elem => elem.checked)[0].getAttribute("id").getAttribute("id")
 		}
 		
 		function sendRequest(e) {
@@ -372,8 +394,10 @@
 			formData.skills = getFormDataSkills()
 			formData.currentSocial = currentSocial
 			formData.phone = getPhone()
+			formData.name = getName()
 			formData.telegram = getTelegramNickname()
 			formData.senderId = getSenderId()
+			formData.successProjects = getSuccessProjects()
 			// const formData = Object.assign(getFormDataSocial(), getFormDataSkills() )
 			// return false
 			// console.log("send")
@@ -417,6 +441,24 @@
 			// sendRequest()
 		}
 		
+		function hideSkillsArrows() {
+			const wrapperRect = scrollBlock.getBoundingClientRect()
+			const rowRect = scrollBlock.querySelector(".skills-block__row").getBoundingClientRect()
+			// console.log(Math.round(rowRect.x))
+			// console.log(Math.round(wrapperRect.x))
+			if (Math.round(rowRect.x) === Math.round(wrapperRect.x)) {
+				document.querySelector(".skills-block__arrow-left").classList.add("hide")
+			} else if (Math.abs(Math.round(wrapperRect.right) - Math.round(rowRect.x)) > 20){
+				document.querySelector(".skills-block__arrow-left").classList.remove("hide")
+			}
+			
+			if (Math.round(rowRect.right) === Math.round(wrapperRect.right)) {
+				document.querySelector(".skills-block__arrow-right").classList.add("hide")
+			} else if (Math.abs(Math.round(rowRect.right) - Math.round(wrapperRect.right)) > 20) {
+				document.querySelector(".skills-block__arrow-right").classList.remove("hide")
+			}
+		}
+		
 		function init() {
 			formBox.querySelectorAll("input[type='text'], input[type='email']").forEach(input => {
 				input.addEventListener("blur", function() {
@@ -447,10 +489,13 @@
 			formBox.querySelectorAll("input[type='radio']").forEach(input => {
 				input.addEventListener("change", function() {
 					if (input.closest(".slide-item__row")) removeError(false, input.closest(".slide-item__row"))
-					if (input.closest(".skills-block__row")) {
+					if (input.closest(".skills-block__row") && !input.closest(".success-projects")) {
 						const name = input.getAttribute("name")
 						document.querySelector(`.skills-block__row[data-name=${name}]`).classList.remove("error-skill", "global-has-error")
 						// input.closest(".slides-table__row").classList.remove("error-skill", "global-has-error")
+					}
+					if (input.closest(".success-projects")) {
+						removeError(false, input.closest(".success-projects"))
 					}
 					//
 				})
@@ -460,6 +505,7 @@
 			setScrollRowsHeight()
 			resetShowSocialInput()
 			setContactsBlockCircles()
+			hideSkillsArrows()
 			// setRowsHeight()
 			// chooseCategory()
 			// sendRequest()
@@ -469,6 +515,7 @@
 			window.addEventListener("resize", dropIntroPicture)
 			window.addEventListener("resize", setScrollRowsHeight)
 			window.addEventListener("resize", setContactsBlockCircles)
+			scrollBlock.addEventListener("scroll", hideSkillsArrows)
 			// window.addEventListener("resize", setRowsHeight)
 		}
 		
