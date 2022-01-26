@@ -871,7 +871,7 @@
 	align-items: stretch;
 	justify-content: space-between;
 	overflow: hidden;
-	position: relative;
+	//position: relative;
 	margin-bottom: 90px;
 	@media (max-width: $mediaL) {
 		flex-wrap: wrap;
@@ -960,9 +960,10 @@
 	}
 
 	&__circles {
-		position: absolute;
-		bottom: 0;
-		left: 0;
+		//position: absolute;
+		//bottom: 0;
+		//left: 0;
+		//border: 2px solid green;
 	}
 
 	&__circle {
@@ -982,12 +983,14 @@
 			height: 270px;
 			border: 60px solid rgba(white, .9);
 			border-radius: 50%;
+			position: absolute;
 			@media (max-width: $mediaL) {
 				display: none;
 			}
 		}
 
 		&--smaller {
+			position: absolute;
 			width: 50px;
 			height: 50px;
 			left: 200px;
@@ -1450,6 +1453,11 @@
 			font-size: 18px;
 			line-height: 150%;
 			display: inline-block;
+			transition: box-shadow .1s linear;
+			&:hover {
+				cursor: pointer;
+				box-shadow: 0 0 2px 2px $mainRed;
+			}
 		}
 	}
 }

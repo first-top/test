@@ -9,11 +9,15 @@
 		const introText = document.querySelector(".intro__text")
 		const staticColumnRows = document.querySelectorAll(".skills-block__static-column .skills-block__row[data-name]")
 		const scrollBlock = document.querySelector(".skills-block__scroll-column")
+		
+		const contactsBlock = document.querySelector(".contacts-block")
+		const contactsBlockCircles = document.querySelector(".contacts-block__circles")
 		// const questionToggleButtons = document.querySelectorAll(".k1-toggle-question")
 		// const questionToggleRows = document.querySelectorAll(".questions-block__rows")
 		
-		
-
+		// console.log(contactsBlockCircles.style.top = `${contactsBlock.offsetTop}px`)
+		// console.log(contactsBlock.offsetTop)
+		// console.log(contactsBlock.getBoundingClientRect())
 		
 		const errorEmptyField = "Это обязательный вопрос."
 		const errorInvalidField = "Неверно заполнено поле."
@@ -22,6 +26,21 @@
 		let currentSocial
 		
 		let formData = {}
+		
+		/**
+		 * make position circle block because positions in css destroy this block design
+		 */
+		
+		function setContactsBlockCircles() {
+			const blockHeight = contactsBlock.clientHeight
+			const blockPosition = contactsBlock.offsetTop
+			console.log(contactsBlock.offsetLeft)
+			contactsBlockCircles.style.cssText = `
+				position: absolute;
+				top: ${blockHeight + blockPosition}px;
+				left: ${contactsBlock.offsetLeft}px;
+			`
+		}
 		
 		// function setRowsHeight(choose) {
 		// 	console.log(choose)
@@ -440,6 +459,7 @@
 			dropIntroPicture()
 			setScrollRowsHeight()
 			resetShowSocialInput()
+			setContactsBlockCircles()
 			// setRowsHeight()
 			// chooseCategory()
 			// sendRequest()
@@ -448,6 +468,7 @@
 			finalButton.addEventListener("click", sendRequest)
 			window.addEventListener("resize", dropIntroPicture)
 			window.addEventListener("resize", setScrollRowsHeight)
+			window.addEventListener("resize", setContactsBlockCircles)
 			// window.addEventListener("resize", setRowsHeight)
 		}
 		

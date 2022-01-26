@@ -779,7 +779,6 @@ body {
   align-items: stretch;
   justify-content: space-between;
   overflow: hidden;
-  position: relative;
   margin-bottom: 90px;
 }
 @media (max-width: 768px) {
@@ -871,11 +870,6 @@ body {
 .contacts-block__field-title span {
   font-weight: 400;
 }
-.contacts-block__circles {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
 .contacts-block__circle {
   position: absolute;
 }
@@ -886,6 +880,7 @@ body {
   height: 270px;
   border: 60px solid rgba(255, 255, 255, 0.9);
   border-radius: 50%;
+  position: absolute;
 }
 @media (max-width: 768px) {
   .contacts-block__circle--bigger {
@@ -893,6 +888,7 @@ body {
   }
 }
 .contacts-block__circle--smaller {
+  position: absolute;
   width: 50px;
   height: 50px;
   left: 200px;
@@ -1297,6 +1293,11 @@ body {
   font-size: 18px;
   line-height: 150%;
   display: inline-block;
+  transition: box-shadow 0.1s linear;
+}
+.skills-block__button .form-send-final:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2px 2px #C83E34;
 }
 
 .social-item {
