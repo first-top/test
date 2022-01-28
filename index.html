@@ -14,10 +14,45 @@
 </head>
 <body>
 <div class="wrapper">
-  <div class="content">
+  <div class="k1-content">
     <header class="header">
+      <div class="container">
+        <div class="header__box">
+          <div class="header__row">
+            <p>Для прохождения теста введите ваш уникальный код доступа</p>
+            <div class="header__input-text">
+              <label for="sender-id">
+                <input type="text" id="sender-id" name="sender-id">
+              </label>
+            </div>
+          </div>
+          <div class="header__row">
+            <p>Если у вас еще нет кода, нажмите Получить код</p>
+            <div class="header__button get-code-js">
+              Получить код
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--      <div class="slide-item__row contacts-block__field" data-type="sender-id">-->
+      <!--        <div class="slide-item__title k1-required contacts-block__field-title">-->
+      <!--          Введите код для отправки результатов вашему рук-лю-->
+      <!--        </div>-->
+      <!--        <div class="slide-item__input-text">-->
+      <!--          <label for="sender-id">-->
+      <!--            <input type="text" id="sender-id" name="sender-id">-->
+      <!--          </label>-->
+      <!--        </div>-->
+      <!--        <div class="slide-item__error-field">-->
+      <!--          Это обязательное поле.-->
+      <!--        </div>-->
+      <!--      </div>-->
+      
     </header>
+    
+    
     <main class="main">
+      
       <div class="intro">
         <div class="circles-block circles-block--left">
           <div class="circle-bigger">
@@ -30,6 +65,12 @@
           </div>
           <div class="circle-smaller">
           </div>
+        </div>
+        <div class="intro__form-get-code">
+          <script id="5af4cbded83d1e9c7529e91da2bf0d9cdbe146c8"
+                  src="http://kuznicakadrov.getcourse.ru/pl/lite/widget/script?id=590803">
+    
+          </script>
         </div>
         <div class="container">
           <div class="intro__box flex-body">
@@ -68,7 +109,7 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div class="container content-code-js">
         <div class="slides k1-form-slides">
           <form action="">
             <div class="slides__item slides__item--intro slide-check ">
@@ -116,22 +157,11 @@
                       Это обязательное поле.
                     </div>
                   </div>
-                  <div class="slide-item__row contacts-block__field" data-type="sender-id">
-                    <div class="slide-item__title k1-required contacts-block__field-title">
-                      Введите код для отправки результатов вашему рук-лю
-                    </div>
-                    <div class="slide-item__input-text">
-                      <label for="sender-id">
-                        <input type="text" id="sender-id" name="sender-id">
-                      </label>
-                    </div>
-                    <div class="slide-item__error-field">
-                      Это обязательное поле.
-                    </div>
-                  </div>
+                
+                
                 </div>
-                
-                
+              
+              
               </div>
               
               <div class="choose-category">
@@ -955,7 +985,7 @@
                 <!--                string-->
                 <!--                string-->
                 <!--                string-->
-               
+              
               </div>
             </div>
             
@@ -976,6 +1006,12 @@
                           <!--                        <use xlink:href="/img/sprite.svg#circle"></use>-->
                           <!--                      </svg>-->
                         </div>
+                      </div>
+                      <div class="skills-block__arrow-left">
+                        <!--                          <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>-->
+                      </div>
+                      <div class="skills-block__arrow-right">
+                        <!--                          <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>-->
                       </div>
                     </div>
                     <div class="skills-block__row" data-name="data-studio">
@@ -1060,21 +1096,24 @@
                     </div>
                   </div>
                   <div class="skills-block__scroll-column">
-                    <div class="skills-block__arrow-left">
-                      <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>
-                    </div>
+                    <!--                    <div class="skills-block__arrow-left">-->
+                    <!--                      <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>-->
+                    <!--                    </div>-->
                     <div class="skills-block__head">
-                      <div class="skills-block__column" data-skill="low">
-                        Не знаю от слова <br> "совсем"
-                      </div>
-                      <div class="skills-block__column" data-skill="lower">
-                        Минимальные знания <br> (надо гуглить)
-                      </div>
-                      <div class="skills-block__column" data-skill="higher">
-                        Уверенные знания (были <br> задачи)
-                      </div>
-                      <div class="skills-block__column" data-skill="high">
-                        Идеально (могу <br> преподавать сам)
+                      <div class="skills-block__head-inner">
+                        <div class="skills-block__column" data-skill="low">
+                          Не знаю от слова <br> "совсем"
+                        </div>
+                        <div class="skills-block__column" data-skill="lower">
+                          Минимальные знания <br> (надо гуглить)
+                        </div>
+                        <div class="skills-block__column" data-skill="higher">
+                          Уверенные знания (были <br> задачи)
+                        </div>
+                        <div class="skills-block__column" data-skill="high">
+                          Идеально (могу <br> преподавать сам)
+                        </div>
+                      
                       </div>
                     </div>
                     <div class="skills-block__row" data-name="data-studio">
@@ -1493,9 +1532,9 @@
                         </label>
                       </div>
                     </div>
-                    <div class="skills-block__arrow-right">
-                      <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>
-                    </div>
+                    <!--                    <div class="skills-block__arrow-right">-->
+                    <!--                      <svg class=""><use xlink:href="img/symbol-defs.svg#icon-arrow_forward_ios"></use></svg>-->
+                    <!--                    </div>-->
                   </div>
                 </div>
                 <div class="skills-block__row success-projects" data-type="success-projects">
@@ -2034,7 +2073,7 @@
                     </label>
                   </div>
                 </div>
-               
+                
                 <div style="display:none" class="skills-block__row skills-block__button">
                   <div class="form-send-final111 123123">
                     отправить
@@ -2047,7 +2086,7 @@
         </div>
       </div>
     </main>
-    <div class="contacts-block__circles">
+    <div class="contacts-block__circles content-code-js">
       <div class="contacts-block__circle contacts-block__circle--bigger">
       </div>
       <div class="contacts-block__circle contacts-block__circle--smaller">

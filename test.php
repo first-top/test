@@ -7,17 +7,17 @@
   $skillsArr = array();
 //  $addresses = ["kd@ft10.ru"];
   $addresses = array(
-    "test-ft-10" => ["az@ft10.ru", "support@ft10.ru","kd@ft10.ru"],
+    "test-ft-10" => ["az@ft10.ru", "support@ft10.ru", "kd@ft10.ru"],
     "test-new" => ["az@ft10.ru",]
   );
-  
+
 //  echo "<pre>", print_r((array)$data->skills), "</pre>";
 //  echo "<pre>", var_dump(count((array)$data->skills)), "</pre>";
   
   function getResultMessage($percent) {
-    if ((int)$percent >= 90 ) return "Набран высокий балл, рекомендуем кандидата на должность";
-    if ((int)$percent >= 70 ) return "Рекомендуем рассмотреть кандидата на должность";
-    if ((int)$percent >= 60 ) return "Рекомендуем кандидата, но следует выполнить практическое задание";
+    if ((int)$percent >= 90) return "Набран высокий балл, рекомендуем кандидата на должность";
+    if ((int)$percent >= 70) return "Рекомендуем рассмотреть кандидата на должность";
+    if ((int)$percent >= 60) return "Рекомендуем кандидата, но следует выполнить практическое задание";
     return "Не рекомендуем";
   }
   
@@ -44,7 +44,7 @@
   ";
   
   
-  foreach($data->skills as $skill) {
+  foreach ($data->skills as $skill) {
 //    switch($skill->score) {
 //      case "low":
 //        break;
@@ -179,7 +179,6 @@
 //  }
 
 
-
 //  $message .= "
 //    " . (($c = !$c) ? '<tr>' : '<tr style="background-color: #f8f8f8;">') . "
 //				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Почта кандидата</b></td>
@@ -194,7 +193,7 @@
 //    ";
 //  echo "<pre>", print_r($currentAnswers), "</pre>";
   if ($data->social_vk) {
-    foreach($answers["answers_vk"] as $key => $ans) {
+    foreach ($answers["answers_vk"] as $key => $ans) {
       if (is_array($ans["value"])) {
         if (!array_diff($ans["value"], $data->social_vk->$key) && array_diff($ans["value"], $data->social_vk->$key) !== null) {
 //          $count++;
@@ -206,20 +205,20 @@
           $scoreVK += (int)$ans["score"];
         }
       }
-    $maxScoreVK += (int)$ans["score"];
+      $maxScoreVK += (int)$ans["score"];
     }
     $message .= "
       <tr>
         <td style='text-align: center; padding: 10px; border: #e9e9e9 1px solid;'>Пройден тест таргетолога ВК</td>
       </tr>
     ";
-    $a = round(0.7*($scoreVK*100/$maxScoreVK));
-    $b = round(0.3*($skillsCount*100/$maxSkillsCount));
+    $a = round(0.7 * ($scoreVK * 100 / $maxScoreVK));
+    $b = round(0.3 * ($skillsCount * 100 / $maxSkillsCount));
     $samePercentVK = $a + $b;
     $messageVK = getResultMessage($samePercentVK);
     if ($scoreVK > 6 && $skillsCount > 9) {
       echo "Сдал";
-      
+
 //      echo "<pre>", print_r($samePercentVK, true), "</pre>";
 //      echo "<pre>", print_r("max VK ", true), print_r($maxScoreVK, true), "</pre>";
 //      echo "<pre>", print_r("current VK ", true), print_r($score, true), "</pre>";
@@ -246,7 +245,7 @@
     ";
     } else {
       echo "Не сдал";
-     
+      
       $message .= "
       " . '<tr>' . "
           <td style='text-align: center; padding: 10px; border: #e9e9e9 1px solid;'><b>Набранный балл: $samePercentVK / 100</b></td>
@@ -262,7 +261,7 @@
   
   if ($data->social_fb) {
     $successProjects = "";
-    foreach($answers["answers_fb"] as $key => $ans) {
+    foreach ($answers["answers_fb"] as $key => $ans) {
       if (is_array($ans["value"])) {
         if (!array_diff($ans["value"], $data->social_fb->$key) && array_diff($ans["value"], $data->social_fb->$key) !== null) {
 //          $count++;
@@ -278,18 +277,18 @@
         echo $data->social_fb->$key;
         echo "<pre>", print_r(123213312), "</pre>";
         ($data->social_fb->$key === "success-projects-no")
-        ? $successProjects = "Менеe 10 успешных проектов"
-        : $successProjects = "Более 10 успешных проектов";
+          ? $successProjects = "Менеe 10 успешных проектов"
+          : $successProjects = "Более 10 успешных проектов";
       }
-    $maxScoreFB += (int)$ans["score"];
+      $maxScoreFB += (int)$ans["score"];
     }
     $message .= "
       <tr>
         <td style='text-align: center; padding: 10px; border: #e9e9e9 1px solid;'>Пройден тест таргетолога ФБ</td>
       </tr>
     ";
-    $a = round(0.7*($scoreFB*100/$maxScoreFB));
-    $b = round(0.3*($skillsCount*100/$maxSkillsCount));
+    $a = round(0.7 * ($scoreFB * 100 / $maxScoreFB));
+    $b = round(0.3 * ($skillsCount * 100 / $maxSkillsCount));
     $samePercentFB = $a + $b;
     if ($scoreFB > 9 && $skillsCount > 9) {
       
@@ -327,7 +326,7 @@
       ";
     }
   }
-  
+
 //  foreach($currentAnswers as $key => $ans) {
 //    if (is_array($ans["value"])) {
 //      if (!array_diff($ans["value"], $data->social->$key) && array_diff($ans["value"], $data->social->$key) !== null) {
@@ -431,7 +430,7 @@
   function adopt($text) {
     return '=?UTF-8?B?' . Base64_encode($text) . '?=';
   }
-  
+
 //  az@ft10.ru, support@ft10.ru
   
   $headers = "MIME-Version: 1.0" . PHP_EOL .
@@ -441,37 +440,42 @@
 //  mail("az@ft10.ru", "test", $message, $headers);
 //  mail("support@ft10.ru", "test", $message, $headers);
   if ($addresses[$senderID]) {
-    foreach($addresses[$senderID] as $address){
+    foreach ($addresses[$senderID] as $address) {
       mail($address, "test", $message, $headers);
     }
   } else {
     echo "no-sender";
     die();
   }
-
-
-//  0,7*fb/vk(% от общего кол-ва баллов)+0,3*компетенции(%от общего кол-ва баллов)
-//  =ЕСЛИ(C4>8;0*C7;ЕСЛИ(C5+C6<5;0*C7;ЕСЛИ(C4<5;ЕСЛИ(C5+C6>11;1*C7;0,5*C7);0,5*C7)))
-//    =(C10/23)*C11
-//  foreach($data->skills as $skill) {
-//    $skills[] = array(
-//      "title" => $skill->title,
-//      "score" => $skill->score,
-//    );
-//  }
-
-
-
-
-
-//  echo "<pre>", var_dump($count), "</pre>";
-//  echo "<pre>", print_r(2222), "</pre>";
-
-//  echo json_encode($answers);
-
-//  echo "<pre>", print_r(getallheaders()), "</pre>";
-
-
+  
+  
+  //  0,7*fb/vk(% от общего кол-ва баллов)+0,3*компетенции(%от общего кол-ва баллов)
+  //  =ЕСЛИ(C4>8;0*C7;ЕСЛИ(C5+C6<5;0*C7;ЕСЛИ(C4<5;ЕСЛИ(C5+C6>11;1*C7;0,5*C7);0,5*C7)))
+  //    =(C10/23)*C11
+  //  foreach($data->skills as $skill) {
+  //    $skills[] = array(
+  //      "title" => $skill->title,
+  //      "score" => $skill->score,
+  //    );
+  //  }
+  
+  
+  //  echo "<pre>", var_dump($count), "</pre>";
+  //  echo "<pre>", print_r(2222), "</pre>";
+  
+  //  echo json_encode($answers);
+  
+  //  echo "<pre>", print_r(getallheaders()), "</pre>";
+  
+//    db
+  //  firsttop_testtar
+  //  x7vx*SNL
+  
+//  mail
+  //test@secretkadr.site
+  //1AwHrmS&
+  
+  //  INSERT INTO `users` (`id`, `name`, `email`, `hash`, `date-payed`, `date-terminated`) VALUES ('1', 'name_test', 'email_email', 'a4324dwcss12e2eawr3', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000');
 
 
 

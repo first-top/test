@@ -12,6 +12,14 @@
 		
 		const contactsBlock = document.querySelector(".contacts-block")
 		const contactsBlockCircles = document.querySelector(".contacts-block__circles")
+		
+		const stickyHeads = document.querySelectorAll(".skills-block__head")
+		const stickyHeadsWrapper = document.querySelector(".skills-block__wrapper")
+		
+		const codeInput = document.querySelector("#sender-id")
+		const header = document.querySelector("header.header")
+		const headerGetCode = document.querySelector(".get-code-js")
+		
 		// const questionToggleButtons = document.querySelectorAll(".k1-toggle-question")
 		// const questionToggleRows = document.querySelectorAll(".questions-block__rows")
 		
@@ -26,6 +34,240 @@
 		let currentSocial
 		
 		let formData = {}
+		let sticky = false
+		let scrollRowsLeftPosition = 0
+		let scroll = null
+		let isCode = false
+		
+		let mail = null
+		
+		// 3d08a7
+		
+		function hideHeader() {
+			header.style.cssText = `
+							padding: 0;
+							height: 0px;
+							overflow: hidden;
+							transition: height .3s linear .3s, padding .3s linear
+							`
+			
+		}
+		
+		function getCodeFromGetCourse() {
+			const introForm = document.querySelector(".intro__form-get-code")
+			hideHeader()
+			setTimeout(() => {
+				introForm.style.maxHeight = "605px"
+			}, 600)
+		}
+		
+		function checkCode(e) {
+			const target = e.target
+			if(target.value.length > 6) {
+				target.value = target.value.slice(0, -1)
+			}
+			if (target.value.length == 6 ) {
+				fetch(`https://secretkadr.site/test.php?code=${target.value}`)
+					.then(response => response.json())
+					.then(data => {
+						if (data.mail && data.mail.length > 0) {
+							console.log("length")
+							console.log(data)
+							mail = data.mail
+							
+							hideHeader()
+							setTimeout(() => {
+								isCode = true
+								console.log(document.querySelectorAll(".content-code-js"))
+								document.querySelectorAll(".content-code-js").forEach(block => {
+									block.style.display = "block"
+									block.classList.remove("content-code-js")
+								})
+								setContactsBlockCircles()
+								
+							}, 600)
+						}
+						
+					})
+			}
+		}
+		
+		function moveArrows(num, e) {
+			// console.log(e.target.scrollLeft)
+			const arLeft = document.querySelector(".skills-block__arrow-left")
+			const arRight = document.querySelector(".skills-block__arrow-right")
+			// console.log(num)
+			if (num === null ) {
+				arLeft.style.left = `10px`
+				arRight.style.right = `20px`
+			}
+			if (num === false) {
+				arLeft.style.left = `${10 + e.target.scrollLeft}px`
+				arRight.style.right = `${20 - e.target.scrollLeft}px`
+			}
+			if (sticky) {
+				arLeft.style.left = `${10 + num}px`
+				arRight.style.right = `${20 - num}px`
+			} else {
+
+			}
+			
+		}
+		
+		function scrollFixedBlock(check = false) {
+			// console.log(scrollBlock.querySelector(".sticky"))
+			// if (!scrollBlock.querySelector(".sticky")) {
+			// 	return false
+			// }
+			// console.log(cord)
+			const wrapperRect = scrollBlock.getBoundingClientRect()
+			const row = scrollBlock.querySelector(".skills-block__head")
+			const rowRect = scrollBlock.querySelector(".skills-block__head-inner").getBoundingClientRect()
+			// console.log(row.scrollLeft)
+			// if (!check) moveArrows(row.scrollLeft)
+			scrollBlock.scrollLeft = row.scrollLeft
+			scroll = row.scrollLeft
+			
+			// moveArrows(scroll)
+			// if (cord === false) {
+			// 	row.style.transform = `translateX(0px)`
+			// }
+			// if (sticky) {
+				// console.log(123)
+				
+				// console.log(rowRect.left)
+				// console.log(cord - rowRect.left)
+				// console.log(row)
+				
+				// scrollRowsLeftPosition = cord && typeof cord !== 'object' ? cord : rowRect.x
+				// if (Number.isInteger(cord)) {
+				// 	if (scroll === null) {
+				// 		scroll = cord
+				// 		return false
+				// 	}
+				// 	if (scroll && scroll > cord) {
+				//
+				// 	}
+				// 	if (scroll && scroll < cord) {
+				// 		console.log(cord - scroll)
+				// 		scrollBlock.querySelector(".skills-block__head").scroll({
+				// 			left: cord - scroll
+				// 		})
+				// 	}
+				// 	scroll = cord
+				// }
+				// console.log(cord)
+				// console.log(rowRect.left)
+				// row.scroll({
+				//
+				// })
+				// row.style.transform = `translateX(-${wrapperRect.left -  cord}px)`
+				// console.log(scrollRowsLeftPosition)
+				// scrollBlock.querySelector(".skills-block__head").scroll({
+					// left: rowRect.left -  cord
+				// })
+				// rowRect.left = scrollRowsLeftPosition
+				
+				// if (!refer) hideSkillsArrows(rowRect.left, true)
+				
+			// }
+			
+		}
+		
+		function hideSkillsArrows(cord, refer = false) {
+			const wrapperRect = scrollBlock.getBoundingClientRect()
+			const rowRect = scrollBlock.querySelector(".skills-block__row").getBoundingClientRect()
+			const rows = scrollBlock.querySelectorAll(".skills-block__row")
+			const row = scrollBlock.querySelector(".skills-block__head")
+			row.scrollLeft = scrollBlock.scrollLeft
+			scroll = scrollBlock.scrollLeft
+			// moveArrows(scroll)
+			// if (sticky) moveArrows(scrollBlock.scrollLeft)
+			// else {
+			// moveArrows(row.scrollLeft)
+			// }
+			// moveArrows(scrollBlock.scrollLeft)
+			// console.log(scrollBlock.scrollLeft)
+			// rightEl.scrollTop = leftEl.scrollTop * (rightWr.clientHeight - rightEl.clientHeight) / (leftWr.clientHeight - leftEl.clientHeight);
+			
+			
+			// if (cord) {
+			// 	// console.log("cord: ", cord)
+			// 	scrollRowsLeftPosition = cord && typeof cord !== 'object' ? cord : rowRect.x
+			// 	rows.forEach(row => {
+			// 		row.style.transform = `translateX(-${wrapperRect.left -  cord}px)`
+			// 	})
+			// 	// console.log(wrapperRect.left)
+			// } else {
+			// 	rows.forEach(row => {
+			// 		row.style.transform = `translateX(0px)`
+			// 	})
+			// }
+			// // console.log(rowRect.x)
+			// if (!refer) scrollFixedBlock(rowRect.x, true)
+			// console.log(Math.round(rowRect.x))
+			// console.log(Math.round(wrapperRect.x))
+			if (Math.round(rowRect.x) === Math.round(wrapperRect.x)) {
+				document.querySelector(".skills-block__arrow-left").classList.add("hide")
+				document.querySelector(".skills-block__static-column").classList.remove("shadow")
+			} else if (Math.abs(Math.round(wrapperRect.right) - Math.round(rowRect.x)) > 20){
+				document.querySelector(".skills-block__arrow-left").classList.remove("hide")
+				document.querySelector(".skills-block__static-column").classList.add("shadow")
+			}
+
+			if (Math.round(rowRect.right) === Math.round(wrapperRect.right)) {
+				document.querySelector(".skills-block__arrow-right").classList.add("hide")
+			} else if (Math.abs(Math.round(rowRect.right) - Math.round(wrapperRect.right)) > 20) {
+				document.querySelector(".skills-block__arrow-right").classList.remove("hide")
+			}
+		}
+		
+		function makeStickyBlock() {
+			// console.log(123123)
+			const a = stickyHeadsWrapper.getBoundingClientRect()
+			const rect = stickyHeads[0].getBoundingClientRect()
+			const windowRect = document.querySelector("body").getBoundingClientRect()
+			// console.log(a.y)
+			if (a.y <= 0 && !sticky) {
+				stickyHeads.forEach(head => {
+					if (!head.closest(".content-code-js")) {
+						head.classList.add("sticky")
+					}
+					
+				})
+				if (document.querySelector(".skills-block__head.sticky")) {
+					document
+						.querySelector(".skills-block__scroll-column .skills-block__head.sticky")
+						.addEventListener("scroll", scrollFixedBlock)
+				}
+			
+				sticky = true
+			}
+			if (a.y > 0 && sticky) {
+				if (document.querySelector(".skills-block__head.sticky")) {
+					document
+						.querySelector(".skills-block__scroll-column .skills-block__head.sticky")
+						.removeEventListener("scroll", scrollFixedBlock)
+				}
+				// moveArrows(null)
+				// document
+				// 	.querySelector(".skills-block__scroll-column .skills-block__head-inner")
+				// 	.style.transform = "translate(0px)"
+				stickyHeads.forEach(head => {
+					head.classList.remove("sticky")
+				})
+				
+				sticky = false
+			}
+			
+		
+			
+			// console.log(rect.top)
+		}
+		
+
+		
+		
 		
 		/**
 		 * make position circle block because positions in css destroy this block design
@@ -34,11 +276,12 @@
 		function setContactsBlockCircles() {
 			const blockHeight = contactsBlock.clientHeight
 			const blockPosition = contactsBlock.offsetTop
-			console.log(contactsBlock.offsetLeft)
+			// console.log(contactsBlock.offsetLeft)
 			contactsBlockCircles.style.cssText = `
 				position: absolute;
 				top: ${blockHeight + blockPosition}px;
 				left: ${contactsBlock.offsetLeft}px;
+				display: block;
 			`
 		}
 		
@@ -165,10 +408,10 @@
 						: formBox.querySelector(".slide-check__choose").classList.remove("error-soc", "global-has-error")
 					
 					if (!elem.checked) {
-						console.log("no-check")
+						// console.log("no-check")
 						const input = document.querySelector(`input[name=show-${id}]`)
 						input.checked = false
-						console.log(document.querySelectorAll(`[data-content=${id}] .global-has-error`))
+						// console.log(document.querySelectorAll(`[data-content=${id}] .global-has-error`))
 						document.querySelectorAll(`[data-content=${id}] .global-has-error`).forEach(error => {
 							error.classList.remove("global-has-error")
 						})
@@ -247,12 +490,12 @@
 		
 		function scrollToError() {
 			const blockContent = checkError().closest(".questions-block__content")
-			console.log(checkError())
+			// console.log(checkError())
 			if (blockContent ) {
 				const errorSocial =  blockContent.getAttribute("data-content")
-				console.log(errorSocial)
+				// console.log(errorSocial)
 				const attr = blockContent.getAttribute("data-content")
-				console.log(attr)
+				// console.log(attr)
 				if (!document.querySelector(`input[name=show-${attr}]`).checked) {
 					document.querySelector(`input[name=show-${attr}]`).click()
 				}
@@ -354,9 +597,9 @@
 			return formBox.querySelector("#user-phone").value
 		}
 		
-		function getSenderId() {
-			return formBox.querySelector("#sender-id").value
-		}
+		// function getSenderId() {
+		// 	return formBox.querySelector("#sender-id").value
+		// }
 		
 		function getSuccessProjects() {
 			if (
@@ -396,7 +639,8 @@
 			formData.phone = getPhone()
 			formData.name = getName()
 			formData.telegram = getTelegramNickname()
-			formData.senderId = getSenderId()
+			formData.mail = mail
+			// formData.senderId = getSenderId()
 			formData.successProjects = getSuccessProjects()
 			// const formData = Object.assign(getFormDataSocial(), getFormDataSkills() )
 			// return false
@@ -441,23 +685,7 @@
 			// sendRequest()
 		}
 		
-		function hideSkillsArrows() {
-			const wrapperRect = scrollBlock.getBoundingClientRect()
-			const rowRect = scrollBlock.querySelector(".skills-block__row").getBoundingClientRect()
-			// console.log(Math.round(rowRect.x))
-			// console.log(Math.round(wrapperRect.x))
-			if (Math.round(rowRect.x) === Math.round(wrapperRect.x)) {
-				document.querySelector(".skills-block__arrow-left").classList.add("hide")
-			} else if (Math.abs(Math.round(wrapperRect.right) - Math.round(rowRect.x)) > 20){
-				document.querySelector(".skills-block__arrow-left").classList.remove("hide")
-			}
-			
-			if (Math.round(rowRect.right) === Math.round(wrapperRect.right)) {
-				document.querySelector(".skills-block__arrow-right").classList.add("hide")
-			} else if (Math.abs(Math.round(rowRect.right) - Math.round(wrapperRect.right)) > 20) {
-				document.querySelector(".skills-block__arrow-right").classList.remove("hide")
-			}
-		}
+
 		
 		function init() {
 			formBox.querySelectorAll("input[type='text'], input[type='email']").forEach(input => {
@@ -504,8 +732,9 @@
 			dropIntroPicture()
 			setScrollRowsHeight()
 			resetShowSocialInput()
-			setContactsBlockCircles()
+			// setContactsBlockCircles()
 			hideSkillsArrows()
+			makeStickyBlock()
 			// setRowsHeight()
 			// chooseCategory()
 			// sendRequest()
@@ -515,11 +744,25 @@
 			window.addEventListener("resize", dropIntroPicture)
 			window.addEventListener("resize", setScrollRowsHeight)
 			window.addEventListener("resize", setContactsBlockCircles)
-			scrollBlock.addEventListener("scroll", hideSkillsArrows)
+		
+			scrollBlock.addEventListener("scroll", 	function (e) {
+				hideSkillsArrows(false, false)
+				// if (!sticky) moveArrows(false, e)
+				// if (document.querySelector(".skills-block__head.sticky"))
+				// scrollFixedBlock(false)
+			})
+			codeInput.addEventListener("input", checkCode)
+			headerGetCode.addEventListener("click", getCodeFromGetCourse)
+			// scrollBlock.addEventListener("scroll", scrollFixedBlock)
+			document.addEventListener("scroll", makeStickyBlock)
+			// window.addEventListener("DOMContentLoaded", () => {
+			// 	console.log("asdsada")
+			// })
 			// window.addEventListener("resize", setRowsHeight)
 		}
 		
 		init()
+
 		
 	})
 })()

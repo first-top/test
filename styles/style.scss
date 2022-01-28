@@ -1,6 +1,51 @@
 @import "vars";
 @import "default";
 
+.header {
+	padding: 30px 0;
+	position: fixed;
+	height: 150px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: white;
+	z-index: 50;
+	&__row {
+		display: flex;
+		align-items: center;
+		& + & {
+			margin-top: 15px;
+		}
+		p {
+			max-width: 400px;
+			width: 100%;
+			margin-right: 20px;
+		}
+	}
+	&__button {
+		border-radius: 10px;
+		padding: 10px 20px;
+		background-color: $mainRed;
+		color: white;
+	}
+	&__input-text {
+		width: 142px;
+		label {
+			width: 100%;
+
+		}
+		input {
+			width: 100%;
+			border: 1px solid #DDE2E4;
+			border-radius: 6px;
+			padding: 5px 10px;
+		}
+	}
+}
+
+.content-code-js {
+	display: none;
+}
 
 .intro {
 	position: relative;
@@ -166,6 +211,11 @@
 			height: 100%;
 			display: block;
 		}
+	}
+
+	&__form-get-code {
+		max-height: 0;
+		transition: max-height .3s linear;
 	}
 
 }
@@ -733,9 +783,6 @@
 }
 
 
-.header {
-	background-color: green;
-}
 
 .icon {
 	width: 30px;
@@ -1260,20 +1307,47 @@
 
 	&__static-column {
 		flex: 0 0 243px;
-
+		&.shadow {
+			//box-shadow: 5px 0 4px 4px black;
+			@media (max-width: $mediaL) {
+				box-shadow: -6px 0 13px 1px gray;
+			}
+		}
+		@media (max-width: $mediaM) {
+			flex: 0 0 150px;
+			max-width: 150px;
+		}
 		.skills-block__head {
-			position: relative;
+			z-index: 10;
 
+		}
+		.skills-block__head {
+			//position: relative;
+			&.sticky {
+				max-width: calc(1200px - 243px);
+				border-radius: 10px 0 0 0;
+				overflow: hidden;
+				//width: calc(100% - (243px + 30px));
+				width: 100%;
+				@media (max-width: $mediaXXL) {
+					max-width: 243px;
+					overflow: visible;
+				}
+			}
 			&::before {
 				content: "";
 				display: block;
 				height: 100%;
-				width: 100vw;
+				width: 100%;
 				background-color: $mainRed;
 				position: absolute;
 				left: 0;
 				top: 0;
 				z-index: -1;
+				border-radius: 0 10px 0 0;
+				@media (max-width: $mediaL) {
+					width: calc(100vw - 20px);
+				}
 			}
 		}
 
@@ -1313,21 +1387,74 @@
 
 		//}
 
-		@media (max-width: $mediaM) {
-			flex: 0 1 150px;
-			max-width: 150px;
-		}
+
 	}
 
 	&__scroll-column {
 		flex: 1 1 auto;
-
+		position: relative;
 		@media (max-width: $mediaL) {
 			flex: 1 1 505px;
 			overflow: scroll;
 			//border: 1px solid green;
 		}
+		.skills-block__head {
+			//position: static;
+			z-index: 11;
+			@media (max-width: $mediaL) {
+				background-color: transparent;
+			}
+			&.sticky {
+				max-width: calc(1200px - 243px);
+				//width: calc(100% - (243px + 30px));
+				width: 100%;
+				border-radius: 0 10px 0 0;
+				//background-color: transparent;
+				@media (max-width: $mediaXXL) {
+					max-width: calc(100vw - (30px + 233px));;
+					//max-width: 505px;
+					overflow-x: scroll;
+				}
+				@media (max-width: $mediaM) {
+					max-width: calc(100vw - (20px + 150px));;
+					//flex: 0 1 150px;
+					//max-width: 150px;
+				}
+				//.skills-block__arrow-left,
+				//.skills-block__arrow-right {
+				//	position: absolute;
+				//	&::before,
+				//	&::after {
+				//		content: "";
+				//		position: absolute;
+				//		width: 30px;
+				//		height: 30px;
+				//		border: 3px solid white;
+				//		border-left: none;
+				//		border-top: none;
+				//		bottom: 5px;
+				//	}
+				//}
+				//.skills-block__arrow-left {
+				//	//display: none;
+				//	left: 30px;
+				//}
+				//.skills-block__arrow-right {
+				//	//display: none;
+				//	right: 30px;
+				//}
+				.skills-block__head-inner {
+					@media (max-width: $mediaL) {
+						width: 505px;
+					}
+					.skills-block__column {
+						width: 225px;
+					}
+				}
+			}
 
+
+		}
 		.skills-block__row,
 		.skills-block__head {
 			@media (max-width: $mediaL) {
@@ -1338,13 +1465,33 @@
 	}
 	&__arrow-left,
 	&__arrow-right {
-		width: 60px;
-		height: 60px;
+		width: 0;
+		height: 0;
 		display: none;
 		position: absolute;
-		z-index: -1;
+		z-index: 1;
+		width: 10px;
+		height: 10px;
+		//border: 3px solid green;
 		&.hide {
 			display: none;
+		}
+		&::before,
+		&::after {
+			display: none;
+			@media (max-width: $mediaL) {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				border: 2px solid white;
+				border-left: none;
+				border-top: none;
+				top: 0;
+				left: 0;
+			}
+
 		}
 		svg {
 			display: block;
@@ -1360,25 +1507,63 @@
 	}
 
 	&__arrow-right {
-		right: 10px;
-		top: 50%;
+		left: calc(100vw - 50px);
+		top: 90px;
+		//bottom: 10px;
+		&::before,
+		&::after {
+			@media (max-width: $mediaL) {
+				transform: rotate(-45deg);
+			}
+
+		}
+		&::before {
+			left: -10px;
+		}
 
 	}
 	&__arrow-left {
-		left: 250px;
+		//left: 250px;
+		left: calc(100% + 20px);
+		top: 90px;
 		@media (max-width: $mediaM) {
-			left: 130px;
+			//left: 130px;
+
+
 		}
-		top: 50%;
-		transform: rotate(180deg);
+		&::before,
+		&::after {
+			@media (max-width: $mediaL) {
+				transform: rotate(135deg);
+			}
+
+		}
+		&::after {
+			left: 10px;
+		}
+			//top: 110px;
+		//bottom: 10px;
+		//transform: rotate(180deg);
 	}
 
+	&__head {
+		position: relative;
+		&.sticky {
+			position: fixed;
+			top: 0;
+			width: calc(100% - 30px);
+			max-width: 1200px;
+			z-index: 2;
+		}
+	}
 
 	&__head,
+	&__head-inner,
 	&__row {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		width: 100%;
 
 	}
 
@@ -1438,6 +1623,11 @@
 		//border-radius: 10px 10px 0 0 ;
 		color: white;
 		height: 90px;
+		@media (max-width: $mediaL) {
+		    height: 120px;
+			align-items: flex-start;
+			padding-top: 10px;
+		}
 	}
 
 	&__placeholder,
@@ -1471,6 +1661,9 @@
 		top: -80px;
 		border-radius: 50%;
 		border: 25px solid rgba(white, .9);
+		@media (max-width: $mediaL) {
+		    top: -40px;
+		}
 	}
 
 	&__smaller {
