@@ -43,6 +43,75 @@
 	}
 }
 
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
+	box-shadow: 1px 0 8px -1px grey;
+	height: 80px;
+	max-height: 80px;
+	transition: height .3s linear, max-height .3s linear;
+	overflow: hidden;
+	z-index: 52;
+	&.hide {
+		max-height: 0;
+		//transform: translateY(50%);
+		height: 0;
+
+
+	}
+	.container  {
+		padding: 30px 0;
+	}
+	@media (max-width: $mediaL) {
+		padding: 15px 0;
+	}
+	&__anchor {
+		padding-right: 50px;
+		span {
+			color: $mainRed;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__close {
+		position: absolute;
+		right: 30px;
+		top: 50%;
+		transform: translateY(-50%);
+
+		width: 20px;
+		height: 16px;
+		//border: 1px solid green;
+		&:hover {
+			cursor: pointer;
+		}
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 50%;
+			display: block;
+			width: 20px;
+			height: 3px;
+			border-radius: 2px;
+			background-color: $mainRed;
+
+		}
+		&::before {
+			transform: translateY(-50%) rotate(45deg);
+		}
+		&::after {
+			transform: translateY(-50%) rotate(-45deg);
+		}
+	}
+}
+
 .content-code-js {
 	display: none;
 }
@@ -216,6 +285,9 @@
 	&__form-get-code {
 		max-height: 0;
 		transition: max-height .3s linear;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 
 }

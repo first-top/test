@@ -25,6 +25,7 @@
                 <input type="text" id="sender-id" name="sender-id">
               </label>
             </div>
+            
           </div>
           <div class="header__row">
             <p>Если у вас еще нет кода, нажмите Получить код</p>
@@ -109,7 +110,7 @@
           </div>
         </div>
       </div>
-      <div class="container content-code-js">
+      <div class="container content-code-js" id="content-anchor">
         <div class="slides k1-form-slides">
           <form action="">
             <div class="slides__item slides__item--intro slide-check ">
@@ -2094,7 +2095,17 @@
     </div>
   </div>
   
-  <footer class="footer"></footer>
+  <footer class="footer hide">
+    <div class="container">
+      <div class="footer__anchor">
+        Вы ввели действительный код и можете
+        <span>
+          Пройти тест
+        </span>
+      </div>
+    </div>
+    <div class="footer__close"></div>
+  </footer>
   <!--  <div class="k1-modal">-->
   <!--    <div class="k1-modal__body">-->
   <!--       Спасибо-->

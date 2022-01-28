@@ -18,7 +18,9 @@
 		
 		const codeInput = document.querySelector("#sender-id")
 		const header = document.querySelector("header.header")
+		const footer = document.querySelector("footer.footer")
 		const headerGetCode = document.querySelector(".get-code-js")
+		const footerCloseButton = document.querySelector(".footer__close")
 		
 		// const questionToggleButtons = document.querySelectorAll(".k1-toggle-question")
 		// const questionToggleRows = document.querySelectorAll(".questions-block__rows")
@@ -53,6 +55,14 @@
 			
 		}
 		
+		function showFooter() {
+			footer.classList.remove("hide")
+		}
+		
+		function hideFooter() {
+			footer.classList.add("hide")
+		}
+		
 		function getCodeFromGetCourse() {
 			const introForm = document.querySelector(".intro__form-get-code")
 			hideHeader()
@@ -76,6 +86,7 @@
 							mail = data.mail
 							
 							hideHeader()
+							showFooter()
 							setTimeout(() => {
 								isCode = true
 								console.log(document.querySelectorAll(".content-code-js"))
@@ -488,6 +499,11 @@
 			return formBox.querySelector(".global-has-error")
 		}
 		
+		function scrollToTest() {
+			document.querySelector("#content-anchor").scrollIntoView({behavior: 'smooth'});
+			hideFooter()
+		}
+		
 		function scrollToError() {
 			const blockContent = checkError().closest(".questions-block__content")
 			// console.log(checkError())
@@ -753,8 +769,11 @@
 			})
 			codeInput.addEventListener("input", checkCode)
 			headerGetCode.addEventListener("click", getCodeFromGetCourse)
+			footerCloseButton.addEventListener("click", hideFooter)
 			// scrollBlock.addEventListener("scroll", scrollFixedBlock)
 			document.addEventListener("scroll", makeStickyBlock)
+			
+			document.querySelector(".footer__anchor").addEventListener("click", scrollToTest)
 			// window.addEventListener("DOMContentLoaded", () => {
 			// 	console.log("asdsada")
 			// })

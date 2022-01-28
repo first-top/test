@@ -186,6 +186,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .k1-content {
@@ -315,6 +316,69 @@ body {
   border: 1px solid #DDE2E4;
   border-radius: 6px;
   padding: 5px 10px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 1px 0 8px -1px grey;
+  height: 80px;
+  max-height: 80px;
+  transition: height 0.3s linear, max-height 0.3s linear;
+  overflow: hidden;
+  z-index: 52;
+}
+.footer.hide {
+  max-height: 0;
+  height: 0;
+}
+.footer .container {
+  padding: 30px 0;
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 0;
+  }
+}
+.footer__anchor {
+  padding-right: 50px;
+}
+.footer__anchor span {
+  color: #C83E34;
+}
+.footer__anchor span:hover {
+  cursor: pointer;
+}
+.footer__close {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 16px;
+}
+.footer__close:hover {
+  cursor: pointer;
+}
+.footer__close::before, .footer__close::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #C83E34;
+}
+.footer__close::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+.footer__close::after {
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 .content-code-js {
@@ -503,6 +567,9 @@ body {
 .intro__form-get-code {
   max-height: 0;
   transition: max-height 0.3s linear;
+}
+.intro__form-get-code:hover {
+  cursor: pointer;
 }
 
 .default-checkbox {
