@@ -10,9 +10,20 @@
 	left: 0;
 	background-color: white;
 	z-index: 50;
+	@media (max-width: $mediaM) {
+    height: 200px;
+		padding: 10px 0;
+		box-shadow: 0 0 8px -1px grey;
+	}
 	&__row {
 		display: flex;
 		align-items: center;
+		@media (max-width: $mediaL) {
+			justify-content: space-between;
+		}
+		@media (max-width: $mediaM) {
+		    flex-wrap: wrap;
+		}
 		& + & {
 			margin-top: 15px;
 		}
@@ -20,6 +31,21 @@
 			max-width: 400px;
 			width: 100%;
 			margin-right: 20px;
+			@media (max-width: $mediaL) {
+				max-width: 300px;
+			}
+			@media (max-width: $mediaM) {
+				margin-right: 0;
+				margin-bottom: 10px;
+				text-align: center;
+				flex: 1 1 100%;
+				max-width: none;
+			}
+			span {
+				@media (max-width: $mediaM) {
+					display: block;
+				}
+			}
 		}
 	}
 	&__button {
@@ -27,9 +53,15 @@
 		padding: 10px 20px;
 		background-color: $mainRed;
 		color: white;
+		@media (max-width: $mediaM) {
+			margin: 0 auto;
+		}
 	}
 	&__input-text {
 		width: 142px;
+		@media (max-width: $mediaM) {
+			margin: 0 auto;
+		}
 		label {
 			width: 100%;
 
@@ -52,24 +84,39 @@
 	box-shadow: 1px 0 8px -1px grey;
 	height: 80px;
 	max-height: 80px;
-	transition: height .3s linear, max-height .3s linear;
+	transition: height .3s linear, max-height .3s linear, transform .3s linear .3s;
 	overflow: hidden;
 	z-index: 52;
+	@media (max-width: $mediaM) {
+	    height: 110px;
+	    max-height: 110px;
+	}
 	&.hide {
 		max-height: 0;
-		//transform: translateY(50%);
+		transform: translateY(200px);
 		height: 0;
 
 
 	}
 	.container  {
-		padding: 30px 0;
+		padding: 30px 15px;
+		height: 100%;
+		@media (max-width: $mediaL) {
+			padding: 10px;
+		}
 	}
 	@media (max-width: $mediaL) {
 		padding: 15px 0;
 	}
 	&__anchor {
 		padding-right: 50px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		p {
+			margin-right: 10px;
+		}
 		span {
 			color: $mainRed;
 			&:hover {
