@@ -67,7 +67,7 @@
 			const introForm = document.querySelector(".intro__form-get-code")
 			hideHeader()
 			setTimeout(() => {
-				introForm.style.maxHeight = "605px"
+				introForm.style.maxHeight = "695px"
 			}, 600)
 		}
 		
