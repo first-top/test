@@ -638,7 +638,7 @@
 			// e.preventDefault()
 			// validateInputText(false, formBox.querySelector("[data-type=\"email\"]"), "email")
 			validateInputText(false, formBox.querySelector("[data-type=\"telegram-nickname\"]"), "text")
-			validateInputText(false, formBox.querySelector("[data-type=\"sender-id\"]"), "text")
+			// validateInputText(false, formBox.querySelector("[data-type=\"sender-id\"]"), "text")
 			const socials = getChosenSocial()
 			console.log(socials)
 			if (!socials || !socials.length) {
