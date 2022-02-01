@@ -50,7 +50,7 @@
 							padding: 0;
 							height: 0px;
 							overflow: hidden;
-							transition: height .3s linear .3s, padding .3s linear
+							transition: height .3s linear, padding .3s linear
 							`
 			
 		}
