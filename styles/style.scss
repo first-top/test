@@ -53,6 +53,11 @@
 		padding: 10px 20px;
 		background-color: $mainRed;
 		color: white;
+		&:hover {
+			cursor: pointer;
+			box-shadow: 0 0 2px 2px rgba($mainRed, .5)
+		}
+
 		@media (max-width: $mediaM) {
 			margin: 0 auto;
 		}
@@ -1291,6 +1296,7 @@
 		.default-checkbox {
 			margin-left: 30px;
 			label {
+
 				span {
 					background-color: transparent;
 					border: none;
@@ -1326,6 +1332,9 @@
 					&::after{
 						top: 5px;
 					}
+				}
+				input:not(:checked) + span{
+					animation: soc  /*имя анимации*/ 1s /* время действия анимации */ linear /*функция анимации*/ 0s /*задержка анимации*/ infinite /*число повторений*/ normal;  /*в прямом или обратном напрвлени будет анимация*/
 				}
 			}
 
@@ -1854,6 +1863,18 @@
 	}
 }
 
+
+@keyframes soc {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(5px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
 
 //https://sovkrov.ru/myagkaya-cherepica/ruflex/
 //https://sovkrov.ru/manager/?a=resource/update&id=193

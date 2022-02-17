@@ -42,6 +42,9 @@
 		let isCode = false
 		
 		let mail = null
+		let code = null
+		
+		let isShowFooter = true
 		
 		// 3d08a7
 		
@@ -57,6 +60,7 @@
 		
 		function showFooter() {
 			footer.classList.remove("hide")
+			
 		}
 		
 		function hideFooter() {
@@ -81,20 +85,30 @@
 					.then(response => response.json())
 					.then(data => {
 						if (data.mail && data.mail.length > 0) {
-							console.log("length")
-							console.log(data)
+							// console.log("length")
+							// console.log(data)
 							mail = data.mail
-							
+							code = data.code
 							hideHeader()
 							showFooter()
+							// console.log(document.querySelector("#content-anchor"))
+							// setTimeout(() => {
+							//
+							// }, 300)
+							
 							setTimeout(() => {
 								isCode = true
-								console.log(document.querySelectorAll(".content-code-js"))
+								// console.log(document.querySelectorAll(".content-code-js"))
 								document.querySelectorAll(".content-code-js").forEach(block => {
 									block.style.display = "block"
 									block.classList.remove("content-code-js")
 								})
+								setOnloadSocialError()
 								setContactsBlockCircles()
+								window.scrollTo({
+									top: document.querySelector("#content-anchor").getBoundingClientRect().top,
+									behavior: "smooth"
+								})
 								
 							}, 600)
 						}
@@ -271,9 +285,10 @@
 				sticky = false
 			}
 			
-		
-			
-			// console.log(rect.top)
+			if (isShowFooter && windowRect.top < -1000) {
+				hideFooter()
+				isShowFooter = false
+			}
 		}
 		
 
@@ -457,15 +472,23 @@
 			// currentSocial = id
 		}
 		
+		function setOnloadSocialError() {
+			// console.log("onload")
+			console.log(getChosenSocial())
+			// formBox.querySelectorAll("input[name=\"chose-social\"]").forEach(elem => {
+				!getChosenSocial().length
+					? formBox.querySelector(".slide-check__choose").classList.add("error-soc", "global-has-error")
+					: formBox.querySelector(".slide-check__choose").classList.remove("error-soc", "global-has-error")
+			// })
+		}
+		
 		function getChosenSocial() {
 			return [...formBox.querySelectorAll("input[name=\"chose-social\"]")].filter(input => input.checked)
 		}
 		
 		function setError(input, row, type) {
 			if (type === "socials" ) {
-				// console.log(row)
 				row.classList.add("error-soc", "global-has-error")
-				// console.log("no soc")
 				return false
 			}
 			if (type === "radio-skills" ) {
@@ -635,15 +658,11 @@
 		}
 		
 		function sendRequest(e) {
-			// e.preventDefault()
-			// validateInputText(false, formBox.querySelector("[data-type=\"email\"]"), "email")
 			validateInputText(false, formBox.querySelector("[data-type=\"telegram-nickname\"]"), "text")
-			// validateInputText(false, formBox.querySelector("[data-type=\"sender-id\"]"), "text")
 			const socials = getChosenSocial()
 			console.log(socials)
 			if (!socials || !socials.length) {
 				setError(false, formBox.querySelector(".slide-check__choose"), "socials")
-				// return false
 			}
 			if (formData["social_vk"]) delete formData["social_vk"]
 			if (formData["social_fb"]) delete formData["social_fb"]
@@ -656,29 +675,20 @@
 			formData.name = getName()
 			formData.telegram = getTelegramNickname()
 			formData.mail = mail
-			// formData.senderId = getSenderId()
+			formData.code = code
 			formData.successProjects = getSuccessProjects()
-			// const formData = Object.assign(getFormDataSocial(), getFormDataSkills() )
-			// return false
-			// console.log("send")
 			console.log(formData)
 			if (checkError()) {
-				// console.log(checkError())
 				scrollToError()
-				// console.log("check errors")
 				return false
 			}
 			let sendError = false, count = 0, score = 0
-			// return false
-			// const url = "http://e92821av.beget.tech/test.php"
 			const url = "https://secretkadr.site/test.php"
-			// return false
 			fetch(url, {
 				method: "post",
 				body: JSON.stringify(formData),
 				headers: {
 					"fast-quiz": "new-action",
-					// "access-control-allow-origin" : "https://first-top.github.io/test/"
 				}
 			})
 				.then(data => data.text())
@@ -725,6 +735,7 @@
 					}
 					if (![...document.getElementsByName(this.getAttribute("name"))].filter(input => input.checked).length) {
 						setError(false, input.closest(".slide-item__row"), "checkbox")
+						
 					} else {
 						removeError(false, input.closest(".slide-item__row"))
 					}
@@ -748,6 +759,7 @@
 			dropIntroPicture()
 			setScrollRowsHeight()
 			resetShowSocialInput()
+			
 			// setContactsBlockCircles()
 			hideSkillsArrows()
 			makeStickyBlock()
