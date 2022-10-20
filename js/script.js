@@ -48,6 +48,10 @@
 		
 		// 3d08a7
 		
+		if (location.search === "?q") {
+			document.querySelector("#content-anchor").style.display = "block"
+		}
+		
 		function hideHeader() {
 			header.style.cssText = `
 							padding: 0;
