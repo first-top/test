@@ -85,7 +85,7 @@
 				target.value = target.value.slice(0, -1)
 			}
 			if (target.value.length == 6 ) {
-				fetch(`http://tasktest.firsttop.beget.tech/test.php?code=${target.value}`)
+				fetch(`https://zarhrcxema.site/test.php?code=${target.value}`)
 					.then(response => response.json())
 					.then(data => {
 						if (data.mail && data.mail.length > 0) {
@@ -687,7 +687,7 @@
 				return false
 			}
 			let sendError = false, count = 0, score = 0
-			const url = "http://tasktest.firsttop.beget.tech/test.php"
+			const url = "https://zarhrcxema.site/test.php"
 			fetch(url, {
 				method: "post",
 				body: JSON.stringify(formData),
