@@ -200,6 +200,7 @@
               </div>
             
             </div>
+
             <!-- vk -->
             <div class="questions-block social-item social-item--vk slides__item--vk " id="current">
               <div class="questions-block__title">
@@ -551,125 +552,73 @@
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
-
-                <div class="slide-item__row questions-block__row" data-type="minimal-cost">
+                <div class="slide-item__row questions-block__row" data-type="percent">
                   <div class="slide-item__title questions-block__name k1-required">
                     Какой процент текста разрешено использовать на рекламных баннерах (формат “Универсальная запись”)?
                   </div>
                   <div class="slide-item__radios questions-block__rows">
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-cost-1">
-                        <input type="radio" id="minimal-cost-1" name="minimal-cost">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="percent-15">
+                        <input type="checkbox" id="percent-15" name="percent">
                         <span></span>
-                        1,20 руб
+                        15%
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-cost-30">
-                        <input type="radio" id="minimal-cost-30" name="minimal-cost">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="percent-20">
+                        <input type="checkbox" id="percent-20" name="percent">
                         <span></span>
-                        30 руб
+                        20%
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-cost-50">
-                        <input type="radio" id="minimal-cost-50" name="minimal-cost">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="percent-25">
+                        <input type="checkbox" id="percent-25" name="percent">
                         <span></span>
-                        50 руб
+                        25%
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-cost-70">
-                        <input type="radio" id="minimal-cost-70" name="minimal-cost">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="percent-free">
+                        <input type="checkbox" id="percent-free" name="percent">
                         <span></span>
-                        70 руб
+                        Ограничений нет
                       </label>
                     </div>
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
-
-                <div class="slide-item__row questions-block__row" data-type="settings-budget">
+                <div class="slide-item__row questions-block__row" data-type="ca">
                   <div class="slide-item__title questions-block__name k1-required">
-                    Сколько эмодзи можно использовать в тексте рекламного объявления (формат: универсальная запись)?
+                    Какие настройки по ЦА можно реализовать, используя внутренние настройки рекламного кабинета ВКонтакте
                   </div>
                   <div class="slide-item__radios questions-block__rows">
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="settings-budget-clicks">
-                        <input type="radio" id="settings-budget-clicks" name="settings-budget">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="ca-cross">
+                        <input type="checkbox" id="ca-cross" name="ca">
                         <span></span>
-                        Регулирование ставок за показы/клики
+                        Пересечение аудиторий. Пользователи состоят в 2-х и более сообществах одновременно
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="settings-budget-shows">
-                        <input type="radio" id="settings-budget-shows" name="settings-budget">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="ca-uncross">
+                        <input type="checkbox" id="ca-uncross" name="ca">
                         <span></span>
-                        Установка лимита объявления
+                        Пересечение аудиторий с отрицанием. Пользователи состоят в одном(-их) сообществах, но не состоят в другом(-их)
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="settings-budget-day">
-                        <input type="radio" id="settings-budget-day" name="settings-budget">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="ca-all">
+                        <input type="checkbox" id="ca-all" name="ca">
                         <span></span>
-                        Установка дневного лимита
+                        Можно выполнить все вышеперечисленные действия
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="settings-budget-clicks-shows">
-                        <input type="radio" id="settings-budget-clicks-shows" name="settings-budget">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="ca-nothing">
+                        <input type="checkbox" id="ca-nothing" name="ca">
                         <span></span>
-                        Регулирование ставок за показы/клики, установка лимита объявления
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="settings-budget-clicks-day">
-                        <input type="radio" id="settings-budget-clicks-day" name="settings-budget">
-                        <span></span>
-                        Регулирование ставок за показы/клики, установка дневного лимита
-                      </label>
-                    </div>
-                  </div>
-                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
-                </div>
-                <div class="slide-item__row questions-block__row" data-type="universal">
-                  <div class="slide-item__title questions-block__name k1-required">
-                    Какие параметры влияют на объем показов универсальной записи при модели оплаты CPC?
-                  </div>
-                  <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
-                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="universal-auction">
-                        <input type="checkbox" id="universal-auction" name="universal">
-                        <span></span>
-                        Конкуренция на аукционе
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="universal-click">
-                        <input type="checkbox" id="universal-click" name="universal">
-                        <span></span>
-                        Установленная цена за клик
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="universal-limit">
-                        <input type="checkbox" id="universal-limit" name="universal">
-                        <span></span>
-                        Лимит объявления
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="universal-ctr">
-                        <input type="checkbox" id="universal-ctr" name="universal">
-                        <span></span>
-                        CTR объявления
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="universal-all">
-                        <input type="checkbox" id="universal-all" name="universal">
-                        <span></span>
-                        Все выше перечисленные
+                        Данные действия с помощью внутренних настроек рекламного кабинета ВКонтакте невозможно
                       </label>
                     </div>
                   </div>
@@ -678,8 +627,8 @@
               </div>
             </div>
             <!-- vk -->
-            <!-- fb -->
 
+            <!-- fb -->
             <div class="slides__item questions-block social-item social-item--fb slides__item--fb slide-item">
               <div class="questions-block__title">
                 <h3>Тестовое задание для таргетологов Facebook</h3>
@@ -1078,8 +1027,8 @@
               </div>
             </div>
             <!-- fb -->
-            <!-- yandex -->
 
+            <!-- yandex -->
             <div class="questions-block social-item social-item--ya slides__item--ya ">
               <div class="questions-block__title">
                 <h3>Тестовое задание для таргетологов Яндекс.Директ</h3>
