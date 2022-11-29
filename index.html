@@ -185,6 +185,13 @@
                       Facebook
                     </label>
                   </div>
+                  <div class="slide-check-item choose-category__input default-checkbox" data-value="ya">
+                    <label for="ya">
+                      <input type="checkbox" id="ya" name="chose-social">
+                      <span></span>
+                      Яндекс.Директ
+                    </label>
+                  </div>
                   <div class="slide-item__error-field k1-error-field">
                     * Выберите одну или обе соц. сети для прохождения теста.
                   </div>
@@ -193,8 +200,8 @@
               </div>
             
             </div>
+            <!-- vk -->
             <div class="questions-block social-item social-item--vk slides__item--vk " id="current">
-              <!--                <h1 style="color: blue">Вопросы для ВК</h1>-->
               <div class="questions-block__title">
                 <h3>Тестовое задание для таргетологов ВКонтакте</h3>
                 <div class="default-checkbox">
@@ -245,6 +252,13 @@
                         Автоматическое управление ценой
                       </label>
                     </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="pay-models-all">
+                        <input type="checkbox" id="pay-models-all" name="pay-models">
+                        <span></span>
+                        Все вышеперечисленные варианты
+                      </label>
+                    </div>
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
@@ -254,13 +268,6 @@
                   </div>
                   <div class="slide-item__radios questions-block__rows">
                     <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-volume-10">
-                        <input type="radio" id="minimal-volume-10" name="minimal-volume">
-                        <span></span>
-                        10
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
                       <label for="minimal-volume-100">
                         <input type="radio" id="minimal-volume-100" name="minimal-volume">
                         <span></span>
@@ -268,17 +275,24 @@
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-volume-500">
-                        <input type="radio" id="minimal-volume-500" name="minimal-volume">
+                      <label for="minimal-volume-200">
+                        <input type="radio" id="minimal-volume-200" name="minimal-volume">
                         <span></span>
-                        500
+                        200
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-volume-1000">
-                        <input type="radio" id="minimal-volume-1000" name="minimal-volume">
+                      <label for="minimal-volume-300">
+                        <input type="radio" id="minimal-volume-300" name="minimal-volume">
                         <span></span>
-                        1000
+                        300
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="minimal-volume-400">
+                        <input type="radio" id="minimal-volume-400" name="minimal-volume">
+                        <span></span>
+                        400
                       </label>
                     </div>
                   </div>
@@ -290,6 +304,13 @@
                     можете выбрать при создании таргетированной рекламы?
                   </div>
                   <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="minimal-distance-100">
+                        <input type="radio" id="minimal-distance-100" name="minimal-distance">
+                        <span></span>
+                        100 м
+                      </label>
+                    </div>
                     <div class="slide-item__checkboxes-row questions-block__radio default-radio">
                       <label for="minimal-distance-500">
                         <input type="radio" id="minimal-distance-500" name="minimal-distance">
@@ -305,65 +326,58 @@
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-distance-5">
-                        <input type="radio" id="minimal-distance-5" name="minimal-distance">
+                      <label for="minimal-distance-3">
+                        <input type="radio" id="minimal-distance-3" name="minimal-distance">
                         <span></span>
-                        5 км
-                      </label>
-                    </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="minimal-distance-10">
-                        <input type="radio" id="minimal-distance-10" name="minimal-distance">
-                        <span></span>
-                        10 км
+                        3 км
                       </label>
                     </div>
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
-                <div class="slide-item__row questions-block__row" data-type="settings-save">
+                <div class="slide-item__row questions-block__row" data-type="action-save">
                   <div class="slide-item__title questions-block__name k1-required">
-                    Какие модели оплаты применяются в ВКонтакте при настройке рекламных объявлений?
+                    Какие действие(я) пользователей нельзя сохранить с помощью "Настройки сохранения аудиторий"?
                   </div>
                   <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
                     <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="settings-save-forward">
-                        <input type="checkbox" id="settings-save-forward" name="settings-save">
+                      <label for="action-save-forward">
+                        <input type="checkbox" id="action-save-forward" name="action-save">
                         <span></span>
                         Перешли по ссылке
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="settings-save-hide-post">
-                        <input type="checkbox" id="settings-save-hide-post" name="settings-save">
+                      <label for="action-save-hide-post">
+                        <input type="checkbox" id="action-save-hide-post" name="action-save">
                         <span></span>
                         Скрыли запись из новостей
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="settings-save-25">
-                        <input type="checkbox" id="settings-save-25" name="settings-save">
+                      <label for="action-save-25">
+                        <input type="checkbox" id="action-save-25" name="action-save">
                         <span></span>
-                        Посмотрели 25% видео
+                        Начали смотреть видео
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="settings-save-write-message">
-                        <input type="checkbox" id="settings-save-write-message" name="settings-save">
+                      <label for="action-save-write-message">
+                        <input type="checkbox" id="action-save-write-message" name="action-save">
                         <span></span>
                         Написали сообщение в сообщество
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="settings-save-share">
-                        <input type="checkbox" id="settings-save-share" name="settings-save">
+                      <label for="action-save-share">
+                        <input type="checkbox" id="action-save-share" name="action-save">
                         <span></span>
                         Поделились записью
                       </label>
                     </div>
                     <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
-                      <label for="settings-save-all">
-                        <input type="checkbox" id="settings-save-all" name="settings-save">
+                      <label for="action-save-all">
+                        <input type="checkbox" id="action-save-all" name="action-save">
                         <span></span>
                         Все действия выше можно сохранить
                       </label>
@@ -371,9 +385,89 @@
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
-                <div class="slide-item__row questions-block__row" data-type="max-peoples">
+                <div class="slide-item__row questions-block__row" data-type="budget">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    На 7 дней рекламы выделяется бюджет 4200 руб.
+                    Задача: равномерно и эффективно потратить весь бюджет по дням при минимальном вмешательстве в рекламу. С помощью каких настроек решите данную задачу?
+                  </div>
+                  <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="budget-control">
+                        <input type="checkbox" id="budget-control" name="budget">
+                        <span></span>
+                        Перешли по ссылке
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="budget-limit">
+                        <input type="checkbox" id="budget-limit" name="budget">
+                        <span></span>
+                        Скрыли запись из новостей
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="budget-day">
+                        <input type="checkbox" id="budget-day" name="budget">
+                        <span></span>
+                        Посмотрели 25% видео
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="budget-control-limit">
+                        <input type="checkbox" id="budget-control-limit" name="budget">
+                        <span></span>
+                        Написали сообщение в сообщество
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="budget-control-day">
+                        <input type="checkbox" id="budget-control-day" name="budget">
+                        <span></span>
+                        Поделились записью
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="srs">
                   <div class="slide-item__title questions-block__name k1-required">
                     Минимальный объем целевой аудитории для запуска рекламного объявления?
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="srs-auction">
+                        <input type="checkbox" id="srs-auction" name="srs">
+                        <span></span>
+                        Конкуренция на аукционе
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="srs-click">
+                        <input type="checkbox" id="srs-click" name="srs">
+                        <span></span>
+                        Установленная цена за клик
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="srs-ad">
+                        <input type="checkbox" id="srs-ad" name="srs">
+                        <span></span>
+                        CTR объявления
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="srs-all">
+                        <input type="checkbox" id="srs-all" name="srs">
+                        <span></span>
+                        Все выше перечисленные
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="max-peoples">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Какой максимальный объем аудитории на одно объявление наиболее эффективен в работе при котором есть четкое понимание, какая аудитория работает
                   </div>
                   <div class="slide-item__radios questions-block__rows">
                     <div class="slide-item__checkboxes-row questions-block__radio default-radio">
@@ -408,51 +502,59 @@
                       <label for="max-peoples-over-200">
                         <input type="radio" id="max-peoples-over-200" name="max-peoples">
                         <span></span>
-                        Более 200 000 пользователей
+                        До 300 000 пользователей
                       </label>
                     </div>
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
-                <div class="slide-item__row questions-block__row" data-type="emoji">
+                <div class="slide-item__row questions-block__row" data-type="create">
                   <div class="slide-item__title questions-block__name k1-required">
-                    Сколько эмодзи можно использовать в тексте рекламного объявления (формат: универсальная запись)?
+                    Какие данные можно использовать для создания аудитории ретаргетинга и дальнейшего запуска рекламы?
                   </div>
                   <div class="slide-item__radios questions-block__rows">
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="emoji-6">
-                        <input type="radio" id="emoji-6" name="emoji">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="create-email">
+                        <input type="checkbox" id="create-email" name="create">
                         <span></span>
-                        6
+                        Email-адреса пользователей
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="emoji-8">
-                        <input type="radio" id="emoji-8" name="emoji">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="create-phone">
+                        <input type="checkbox" id="create-phone" name="create">
                         <span></span>
-                        8
+                        Телефоны пользователей
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="emoji-10">
-                        <input type="radio" id="emoji-10" name="emoji">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="create-nick">
+                        <input type="checkbox" id="create-nick" name="create">
                         <span></span>
-                        10
+                        Ники пользователей ВКонтакте
                       </label>
                     </div>
-                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
-                      <label for="emoji-12">
-                        <input type="radio" id="emoji-12" name="emoji">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="create-id">
+                        <input type="checkbox" id="create-id" name="create">
                         <span></span>
-                        12
+                        ID пользователей ВКонтакте
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="create-all">
+                        <input type="checkbox" id="create-all" name="create">
+                        <span></span>
+                        Все вышеперечисленные
                       </label>
                     </div>
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
+
                 <div class="slide-item__row questions-block__row" data-type="minimal-cost">
                   <div class="slide-item__title questions-block__name k1-required">
-                    Минимальная стоимость за 1000 показов для формата универсальная запись?
+                    Какой процент текста разрешено использовать на рекламных баннерах (формат “Универсальная запись”)?
                   </div>
                   <div class="slide-item__radios questions-block__rows">
                     <div class="slide-item__checkboxes-row questions-block__radio default-radio">
@@ -486,6 +588,7 @@
                   </div>
                   <div class="slide-item__error-field">Это обязательный вопрос.</div>
                 </div>
+
                 <div class="slide-item__row questions-block__row" data-type="settings-budget">
                   <div class="slide-item__title questions-block__name k1-required">
                     Сколько эмодзи можно использовать в тексте рекламного объявления (формат: универсальная запись)?
@@ -574,6 +677,9 @@
                 </div>
               </div>
             </div>
+            <!-- vk -->
+            <!-- fb -->
+
             <div class="slides__item questions-block social-item social-item--fb slides__item--fb slide-item">
               <div class="questions-block__title">
                 <h3>Тестовое задание для таргетологов Facebook</h3>
@@ -971,7 +1077,321 @@
               
               </div>
             </div>
-            
+            <!-- fb -->
+            <!-- yandex -->
+
+            <div class="questions-block social-item social-item--ya slides__item--ya ">
+              <div class="questions-block__title">
+                <h3>Тестовое задание для таргетологов Яндекс.Директ</h3>
+                <div class="default-checkbox">
+                  <label for="show-ya">
+                    <input type="checkbox" id="show-ya" name="show-ya">
+                    <span></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="questions-block__content" data-content="ya">
+                <div class="questions-block__description">
+                  <h5>В вопросах может быть как один ответ, так и несколько (будьте внимательны).</h5>
+                  <h5 class="k1--colored-red">* Обязательно</h5>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="ctr">
+                  <div class="slide-item__title questions-block__name  ">
+                    <span class="k1-required">
+                      За счет чего может произойти снижение стоимости цены посетителя сайта?
+                    </span>
+                  </div>
+                  <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-radio">
+                      <label for="up-ctr">
+                        <input type="radio" id="up-ctr" name="ctr">
+                        <span></span>
+                        Понижение CTR
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-radio">
+                      <label for="down-ctr">
+                        <input type="radio" id="down-ctr" name="ctr">
+                        <span></span>
+                        Повышение CTR
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="same-keywords">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Ключевые фразы на поиске и в сетях работают одинаково или по-разному?
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="same-keywords-y">
+                        <input type="radio" id="same-keywords-y" name="same-keywords">
+                        <span></span>
+                        Одинаково
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="same-keywords-n">
+                        <input type="radio" id="same-keywords-n" name="same-keywords">
+                        <span></span>
+                        По разному
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="exclamation">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Что позволяет сделать оператор "!"? (восклицательный знак)
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="exclamation-rm">
+                        <input type="radio" id="exclamation-rm" name="exclamation">
+                        <span></span>
+                        Исключить слово
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="exclamation-use">
+                        <input type="radio" id="exclamation-use" name="exclamation">
+                        <span></span>
+                        Зафиксировать использование слова в любой форме
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="exclamation-form">
+                        <input type="radio" id="exclamation-form" name="exclamation">
+                        <span></span>
+                        Зафиксировать форму слова (число/падеж/время)
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="exclamation-cnt">
+                        <input type="radio" id="exclamation-cnt" name="exclamation">
+                        <span></span>
+                        Зафиксировать количество слов в фразе
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="rsy">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    При настройке “Мастер кампаний” возможно ли разграничить настройки отдельно на Поиске и на РСЯ
+                  </div>
+                  <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-radio">
+                      <label for="rsy-y">
+                        <input type="radio" id="rsy-y" name="rsy">
+                        <span></span>
+                        Да
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-radio">
+                      <label for="rsy-n">
+                        <input type="radio" id="rsy-n" name="rsy">
+                        <span></span>
+                        Нет
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="plus">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Что позволяет сделать оператор “+”? (плюс)
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="plus-form">
+                        <input type="checkbox" id="plus-form" name="plus">
+                        <span></span>
+                        Фиксирует форму слова
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="plus-stop">
+                        <input type="checkbox" id="plus-stop" name="plus">
+                        <span></span>
+                        Фиксирует стоп-слова
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="plus-order">
+                        <input type="checkbox" id="plus-order" name="plus">
+                        <span></span>
+                        Фиксирует порядок слов
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="plus-cnt">
+                        <input type="checkbox" id="plus-cnt" name="plus">
+                        <span></span>
+                        Фиксирует количество слов
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="minus">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Куда добавляются минус-слова?
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="minus-key">
+                        <input type="radio" id="minus-key" name="minus">
+                        <span></span>
+                        В ключевую фразу
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-radio">
+                      <label for="minus-group">
+                        <input type="radio" id="minus-group" name="minus">
+                        <span></span>
+                        В группу объявлений или кампаний
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="attribution">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Какую модель атрибуции в настройках лучше всего выбрать для проектов, где потенциальные клиенты быстро принимают решение (доставка еды, такси и т.п)
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="attribution-first">
+                        <input type="checkbox" id="attribution-first" name="attribution">
+                        <span></span>
+                        Первый переход
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="attribution-last">
+                        <input type="checkbox" id="attribution-last" name="attribution">
+                        <span></span>
+                        Последний переход
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="attribution-last-from">
+                        <input type="checkbox" id="attribution-last-from" name="attribution">
+                        <span></span>
+                        Последний переход  из Директа
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="attribution-last-result">
+                        <input type="checkbox" id="attribution-last-result" name="attribution">
+                        <span></span>
+                        Последний значимый переход
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="education">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Сколько длится обучение рекламной кампании настроенной со стратегией показов “Максимум конверсий”?
+                  </div>
+                  <div class="slide-item__radios questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="education-7">
+                        <input type="checkbox" id="education-7" name="education">
+                        <span></span>
+                        До 7 дней и должна принести не менее 10 конверсий
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="education-14">
+                        <input type="checkbox" id="education-14" name="education">
+                        <span></span>
+                        До 14 дней и должна принести не менее 10 конверсий за каждую неделю
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__radio default-checkbox">
+                      <label for="education-21">
+                        <input type="checkbox" id="education-21" name="education">
+                        <span></span>
+                        До 21 дня и должна принести не менее 15 конверсий за каждую неделю
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+                <div class="slide-item__row questions-block__row" data-type="filter">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    Можно ли при настройке рекламы в “Мастер кампаний” разграничить показы по устройствам, а именно, на компьютеры/ноутбуки, смартфоны, планшеты
+                  </div>
+                  <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-radio">
+                      <label for="filter-y">
+                        <input type="radio" id="filter-y" name="filter">
+                        <span></span>
+                        Да
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-radio">
+                      <label for="filter-n">
+                        <input type="radio" id="filter-n" name="filter">
+                        <span></span>
+                        Нет
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+
+                <div class="slide-item__row questions-block__row" data-type="action">
+                  <div class="slide-item__title questions-block__name k1-required">
+                    С помощью каких действий можно увеличить CTR рекламного объявления, показывающегося по ключевой фразе?
+                  </div>
+                  <div class="slide-item__checkboxes questions-block__checkboxes questions-block__rows">
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="action-qualify">
+                        <input type="checkbox" id="action-qualify" name="action">
+                        <span></span>
+                        Выполнить уточнение ключевой фразы, по которой показывается данное объявление (добавить операторы)
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="action-add-m">
+                        <input type="checkbox" id="action-add-m" name="action">
+                        <span></span>
+                        Добавить минус-слова к ключевой фразе
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="action-gain">
+                        <input type="checkbox" id="action-gain" name="action">
+                        <span></span>
+                        Усилить оффер на посадочной странице
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="action-add-k">
+                        <input type="checkbox" id="action-add-k" name="action">
+                        <span></span>
+                        В заголовок объявления добавить или скопировать слова из ключевой фразы
+                      </label>
+                    </div>
+                    <div class="slide-item__checkboxes-row questions-block__checkbox default-checkbox">
+                      <label for="action-all">
+                        <input type="checkbox" id="action-all" name="action">
+                        <span></span>
+                        Все вышеперечисленные действия
+                      </label>
+                    </div>
+                  </div>
+                  <div class="slide-item__error-field">Это обязательный вопрос.</div>
+                </div>
+              </div>
+            </div>
+            <!-- yandex -->
             
             <div class="slides__item slides__item--skills skills-block slide-item">
               <div class="slides-table">

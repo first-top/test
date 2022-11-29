@@ -604,6 +604,7 @@
 		function resetShowSocialInput() {
 			document.querySelector("input[name='show-vk']").checked = false
 			document.querySelector("input[name='show-fb']").checked = false
+			document.querySelector("input[name='show-ya']").checked = false
 		}
 		
 		function getFormDataSkills() {
@@ -670,6 +671,7 @@
 			}
 			if (formData["social_vk"]) delete formData["social_vk"]
 			if (formData["social_fb"]) delete formData["social_fb"]
+			if (formData["social_ya"]) delete formData["social_ya"]
 			socials.forEach(elem => {
 				formData[`social_${elem.getAttribute("id")}`] = getFormDataSocial(elem.getAttribute("id"))
 			})
@@ -686,6 +688,7 @@
 				scrollToError()
 				return false
 			}
+			return false
 			let sendError = false, count = 0, score = 0
 			const url = "https://zarhrcxema.site/test.php"
 			fetch(url, {
@@ -733,7 +736,10 @@
 			formBox.querySelectorAll("input[type='checkbox']").forEach(input => {
 				input.addEventListener("change", function() {
 					if (input.getAttribute("name") === "chose-social") return false
-					if (input.getAttribute("name") === "show-vk" || input.getAttribute("name") === "show-fb") {
+					if (input.getAttribute("name") === "show-vk"
+						|| input.getAttribute("name") === "show-fb"
+						|| input.getAttribute("name") === "show-ya"
+					) {
 						showTestContent(input, input.getAttribute("name").replace("show-", ""))
 						return false
 					}

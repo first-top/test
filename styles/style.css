@@ -451,10 +451,6 @@ body {
   transform: translateY(-50%) rotate(-45deg);
 }
 
-.content-code-js {
-  display: none;
-}
-
 .intro {
   position: relative;
   padding-top: 200px;
@@ -1249,8 +1245,7 @@ body {
   top: 5px;
 }
 .questions-block__title .default-checkbox label input:not(:checked) + span {
-  animation: soc 1s linear 0s infinite normal;
-  /*в прямом или обратном напрвлени будет анимация*/
+  animation: soc 1s linear 0s infinite normal; /*в прямом или обратном напрвлени будет анимация*/
 }
 .questions-block__description {
   margin-bottom: 6px;
