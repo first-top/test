@@ -1,7 +1,6 @@
 (function () {
 	window.addEventListener("DOMContentLoaded", () => {
 		const formBox = document.querySelector(".k1-form-slides")
-		// const sendButton = formBox.querySelector(".form-send-final")
 		const nextButton = formBox.querySelectorAll(".slide-item__next")
 		const finalButton = formBox.querySelector(".form-send-final")
 		const introPicture = document.querySelector(".intro__picture")
@@ -21,14 +20,7 @@
 		const footer = document.querySelector("footer.footer")
 		const headerGetCode = document.querySelector(".get-code-js")
 		const footerCloseButton = document.querySelector(".footer__close")
-		
-		// const questionToggleButtons = document.querySelectorAll(".k1-toggle-question")
-		// const questionToggleRows = document.querySelectorAll(".questions-block__rows")
-		
-		// console.log(contactsBlockCircles.style.top = `${contactsBlock.offsetTop}px`)
-		// console.log(contactsBlock.offsetTop)
-		// console.log(contactsBlock.getBoundingClientRect())
-		
+
 		const errorEmptyField = "Это обязательный вопрос."
 		const errorInvalidField = "Неверно заполнено поле."
 		
@@ -45,8 +37,6 @@
 		let code = null
 		
 		let isShowFooter = true
-		
-		// 3d08a7
 		
 		if (location.search === "?q") {
 			document.querySelector("#content-anchor").style.display = "block"
@@ -89,20 +79,12 @@
 					.then(response => response.json())
 					.then(data => {
 						if (data.mail && data.mail.length > 0) {
-							// console.log("length")
-							// console.log(data)
 							mail = data.mail
 							code = data.code
 							hideHeader()
 							showFooter()
-							// console.log(document.querySelector("#content-anchor"))
-							// setTimeout(() => {
-							//
-							// }, 300)
-							
 							setTimeout(() => {
 								isCode = true
-								// console.log(document.querySelectorAll(".content-code-js"))
 								document.querySelectorAll(".content-code-js").forEach(block => {
 									block.style.display = "block"
 									block.classList.remove("content-code-js")
@@ -116,16 +98,13 @@
 								
 							}, 600)
 						}
-						
 					})
 			}
 		}
 		
 		function moveArrows(num, e) {
-			// console.log(e.target.scrollLeft)
 			const arLeft = document.querySelector(".skills-block__arrow-left")
 			const arRight = document.querySelector(".skills-block__arrow-right")
-			// console.log(num)
 			if (num === null ) {
 				arLeft.style.left = `10px`
 				arRight.style.right = `20px`
@@ -138,69 +117,15 @@
 				arLeft.style.left = `${10 + num}px`
 				arRight.style.right = `${20 - num}px`
 			} else {
-
 			}
-			
 		}
 		
 		function scrollFixedBlock(check = false) {
-			// console.log(scrollBlock.querySelector(".sticky"))
-			// if (!scrollBlock.querySelector(".sticky")) {
-			// 	return false
-			// }
-			// console.log(cord)
 			const wrapperRect = scrollBlock.getBoundingClientRect()
 			const row = scrollBlock.querySelector(".skills-block__head")
 			const rowRect = scrollBlock.querySelector(".skills-block__head-inner").getBoundingClientRect()
-			// console.log(row.scrollLeft)
-			// if (!check) moveArrows(row.scrollLeft)
 			scrollBlock.scrollLeft = row.scrollLeft
 			scroll = row.scrollLeft
-			
-			// moveArrows(scroll)
-			// if (cord === false) {
-			// 	row.style.transform = `translateX(0px)`
-			// }
-			// if (sticky) {
-				// console.log(123)
-				
-				// console.log(rowRect.left)
-				// console.log(cord - rowRect.left)
-				// console.log(row)
-				
-				// scrollRowsLeftPosition = cord && typeof cord !== 'object' ? cord : rowRect.x
-				// if (Number.isInteger(cord)) {
-				// 	if (scroll === null) {
-				// 		scroll = cord
-				// 		return false
-				// 	}
-				// 	if (scroll && scroll > cord) {
-				//
-				// 	}
-				// 	if (scroll && scroll < cord) {
-				// 		console.log(cord - scroll)
-				// 		scrollBlock.querySelector(".skills-block__head").scroll({
-				// 			left: cord - scroll
-				// 		})
-				// 	}
-				// 	scroll = cord
-				// }
-				// console.log(cord)
-				// console.log(rowRect.left)
-				// row.scroll({
-				//
-				// })
-				// row.style.transform = `translateX(-${wrapperRect.left -  cord}px)`
-				// console.log(scrollRowsLeftPosition)
-				// scrollBlock.querySelector(".skills-block__head").scroll({
-					// left: rowRect.left -  cord
-				// })
-				// rowRect.left = scrollRowsLeftPosition
-				
-				// if (!refer) hideSkillsArrows(rowRect.left, true)
-				
-			// }
-			
 		}
 		
 		function hideSkillsArrows(cord, refer = false) {
@@ -414,12 +339,7 @@
 			document.querySelector(".contacts-block__circles").remove()
 			// document.write()
 		}
-		
-		// function setPrimary(e) {
-		// 	primarySocial = e.target.closest(".slide-check-item").querySelector("input").getAttribute("id")
-		// 	console.log(primarySocial)
-		// }
-		
+
 		function chooseSocial() {
 			let id
 			// let id = [...formBox.querySelectorAll("input[name=\"chose-social\"]")].filter(input => input.checked)[0].getAttribute("id")
@@ -603,7 +523,7 @@
 		
 		function resetShowSocialInput() {
 			document.querySelector("input[name='show-vk']").checked = false
-			document.querySelector("input[name='show-fb']").checked = false
+			// document.querySelector("input[name='show-fb']").checked = false
 			document.querySelector("input[name='show-ya']").checked = false
 		}
 		
@@ -614,7 +534,6 @@
 				const arrFields = document.getElementsByName(typeName)
 				data[typeName] = {
 					title: row.querySelector(".skills-block__name").textContent.trim(),
-					// score: [...arrFields].filter(elem => elem.checked)[0].value
 				}
 				if ([...arrFields].filter(elem => elem.checked)[0]) {
 					data[typeName].score = [...arrFields].filter(elem => elem.checked)[0].value
@@ -656,10 +575,6 @@
 			} else {
 				setError(false, document.querySelector(".skills-block__row.success-projects"), "radio")
 			}
-			// return [...formBox.querySelectorAll("input[name='success-projects']")]
-			// 	.filter(elem => elem.checked)[0]
-			// 	.getAttribute("id") || setError(false, document.querySelector(".skills-block__row.success-projects"), "radio")
-			// return [...formBox.querySelectorAll("input[name='success-projects']")].filter(elem => elem.checked)[0].getAttribute("id").getAttribute("id")
 		}
 		
 		function sendRequest(e) {
@@ -688,7 +603,6 @@
 				scrollToError()
 				return false
 			}
-			return false
 			let sendError = false, count = 0, score = 0
 			const url = "https://zarhrcxema.site/test.php"
 			fetch(url, {
@@ -704,18 +618,15 @@
 					putThanksMessage()
 				})
 		}
-		// test-k1
+
 		function nextForm() {
 			formData = getFormDataSocial()
 			if (checkError()) {
-				// console.log("ошибка")
 				return false
 			} else {
-				// console.log("ok")
 			}
 			formBox.querySelectorAll(".slides__item").forEach(elem => elem.classList.remove("active"))
 			formBox.querySelector(".slides__item--skills").classList.add("active")
-			// sendRequest()
 		}
 		
 
@@ -785,9 +696,6 @@
 		
 			scrollBlock.addEventListener("scroll", 	function (e) {
 				hideSkillsArrows(false, false)
-				// if (!sticky) moveArrows(false, e)
-				// if (document.querySelector(".skills-block__head.sticky"))
-				// scrollFixedBlock(false)
 			})
 			codeInput.addEventListener("input", checkCode)
 			headerGetCode.addEventListener("click", getCodeFromGetCourse)
@@ -796,10 +704,6 @@
 			document.addEventListener("scroll", makeStickyBlock)
 			
 			document.querySelector(".footer__anchor").addEventListener("click", scrollToTest)
-			// window.addEventListener("DOMContentLoaded", () => {
-			// 	console.log("asdsada")
-			// })
-			// window.addEventListener("resize", setRowsHeight)
 		}
 		
 		init()

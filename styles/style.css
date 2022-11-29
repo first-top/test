@@ -451,6 +451,10 @@ body {
   transform: translateY(-50%) rotate(-45deg);
 }
 
+.content-code-js {
+  display: none;
+}
+
 .intro {
   position: relative;
   padding-top: 200px;
