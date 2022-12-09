@@ -612,11 +612,36 @@
 					"fast-quiz": "new-action",
 				}
 			})
-				.then(data => data.text())
+				.then(data => data.json())
 				.then(test => {
-					console.log(test)
-					putThanksMessage()
+						if (test?.vk) showResult(test.vk)
+					if (test?.ya) showResult(test.ya)
+					// putThanksMessage()
 				})
+		}
+
+		function showResult(data) {
+			data.forEach(elem => {
+				const node = document.querySelector(`[data-type="${elem.question}"]`)
+				const nameNode = node.querySelector('.questions-block__name')
+				const score = document.createElement('span')
+				score.textContent = `Баллы за вопрос: ${elem.code.score}`
+				nameNode.append(score)
+				if (elem.equal) node.style.backgroundColor = 'rgba(0,255,0,0.2)'
+				else node.style.backgroundColor = 'rgba(255,0,0,0.2)'
+				if (Array.isArray(elem.code.value)) {
+					elem.code.value.forEach(input => {
+						const label = document.querySelector(`label[for='${input}']`)
+						label.style.backgroundColor = 'green'
+					})
+				} else {
+					const label = document.querySelector(`label[for='${elem.code.value}']`)
+					label.style.backgroundColor = 'green'
+				}
+			})
+			// for (let item in data) {
+			// 	console.log(item)
+			// }
 		}
 
 		function nextForm() {
