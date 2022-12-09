@@ -614,9 +614,9 @@
 			})
 				.then(data => data.json())
 				.then(test => {
-						if (test?.vk) showResult(test.vk)
-					if (test?.ya) showResult(test.ya)
-					// putThanksMessage()
+						// if (test?.vk) showResult(test.vk)
+					// if (test?.ya) showResult(test.ya)
+					putThanksMessage()
 				})
 		}
 
